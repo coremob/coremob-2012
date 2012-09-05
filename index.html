@@ -52,6 +52,11 @@
         <p>This specification is the result of this work. It attempts to carefully balances developer needs and implementation constraints as of today. Updated versions of this document will be released as the platform evolves and new technologies become broadly available.
         </p>
     </section>
+    <section id='conformance'>
+      <p>A User Agent conforms to Core Mobile Web Platform 2012 if it conforms to all listed specifications <em>and their dependencies</em>.</p>
+
+      <p>However, the inability of a User Agent to conform to one of the listed specification due to limitations of the device does not make the User Agent non-conformant. (For example, a User Agent is not required to support Touch Events on a device devoid of a touch screen.)</p>
+    </section>
     <section>
       <h2>Markup</h2>
       <p>This section describes requirements for markup languages and related features.</p>
@@ -202,7 +207,7 @@
         </section>
         <section>
           <h2>Touch Events</h2>
-          <p>User agents SHOULD support Touch Events version 1 [[!TOUCH-EVENTS]].</p>
+          <p>User agents MUST support Touch Events version 1 [[!TOUCH-EVENTS]].</p>
         </section>
         <section>
           <h2>CSSOM View</h2>
