@@ -32,264 +32,263 @@
     <script src='./markdown-respec-alpha.js' async class='remove'></script>
   </head>
   <body>
-
-<section id='abstract'>
-This specification describes the core set of technologies that define the baseline platform
-for mobile Web applications to target. It does not create any new technology but rather syndicates
-them into a globally coherent view of the mobile Web platform.
-</section>
-
-<section id='sotd'>
-Comments on this document are welcomed and should be made on the [public-coremob@w3.org mailing list](http://lists.w3.org/Archives/Public/public-coremob/). The source code is available on [GitHub](https://github.com/coremob/coremob-2012).
-</section>
-
-<section class='informative'>
-Introduction
-------------
-
-The goal of the Core Mobile Web Platform Community Group is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to agree on core features developers can depend on.
-
-This specification is the result of this work. It attempts to carefully balances developer needs and implementation constraints as of today. Updated versions of this document will be released as the platform evolves and new technologies become broadly available.
-</section>
-
-<section id='conformance'>
-A User Agent conforms to Core Mobile Web Platform 2012 if it conforms to all listed specifications _and their dependencies_.
-
-However, the inability of a User Agent to conform to one of the listed specifications due to limitations of the device does not make the User Agent non-conformant. (For example, a User Agent is not required to support Touch Events on a device devoid of a touch screen.)
-</section>
-
-Markup
-------
-
-This section describes requirements for markup languages and related features.
-
-### HTML5 ###
-
-User agents MUST support HTML5 [[!HTML5]].
-
-<p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
-
-<p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
-
-<p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
-
-### HTML Media Capture ###
-
-User agents MUST support HTML Media Capture [[!HTMLMEDIACAPTURE]].
-
-### SVG ###
-
-User agents MUST support Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]].
-
-### Device Adaptation ###
-
-User agents MUST support CSS Device Adaptation [[!CSS-ADAPTATION]] as specified through a `meta` viewport element.
-
-### Application Configuration ###
-
-<p class='issue' data-number=6>WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).</p>
-
-### View Orientation ###
-
-<p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
-
-### Chromeless Mode ###
-
-<p class='issue' data-number=8>Within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/). Could end up as an attribute of [Application Configuration](#application-configuration).</p>
-
-Style
------
-
-This section defines requirements for CSS and other, styling-related features.
-
-### CSS 2.1 ###
-
-User agents MUST support CSS 2.1 [[!CSS21]].
-
-### Processing ###
-
-#### Values ####
-
-User agents MUST support CSS Values [[!CSS3VAL]].
-
-<p class='issue' data-number=9>CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).</p>
-
-#### Media Queries ####
-
-User agents MUST support CSS Media Queries [[!CSS3-MEDIAQUERIES]].
-
-#### Selectors ####
-
-User agents MUST support CSS Selectors Level 3 [[!SELECTORS]].
-
-<p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
-
-### Graphical ###
-
-#### Backgrounds and Borders ####
-
-User agents MUST support CSS Backgrounds and Borders [[!CSS3-BG]].
-
-#### Color ####
-
-User agents MUST support CSS Color [[!CSS3COLOR]].
-
-#### Image Values and Replaced Content ####
-
-User agents MUST support CSS Image Values and Replaced Content [[!CSS3-IMAGES]].
-
-<p class='issue' data-number=10>CSS Image Values is a CR. Questionable content is marked at risk, which is reassuring.</p>
-
-### Layout ###
-
-#### Flexbox ####
-
-User agents MUST support CSS Flexible Box Layout [[!FLEXBOX]].
-
-#### Transforms ####
-
-User agents MUST support CSS Transforms [[!CSS3-TRANSFORMS]].
-
-### Typography ###
-
-#### CSS Fonts ####
-
-User agents MUST support CSS Fonts [[!CSS3-FONTS]].
-
-#### WOFF ####
-
-User agents MUST support <acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]].
-
-#### CSS Text ####
-
-User agents MUST support CSS Text [[!CSS3TEXT]].
-
-<p class='issue' data-number=13>Spec in WD. We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.</p>
-
-### Animations and Transitions ###
-
-#### Animations ####
-
-User agents MUST support CSS Animations [[!CSS3-ANIMATIONS]].
-
-#### Transitions ####
-
-User agents MUST support CSS Transitions [[!CSS3-TRANSITIONS]].
-
-Scripting
----------
-
-This section defines which scripting support in language and APIs are required.
-
-### ECMAScript ###
-
-User agents MUST support ECMAScript, Edition 5.1 [[!ECMA-262-51]].
-
-### DOM ###
-
-#### DOM4 ####
-
-User agents MUST support the DOM4 API [[!DOM4]].
-
-#### Selectors ####
-
-User agents MUST support the Selectors API level 2 [[!SELECTORS-API2]].
-
-#### Touch Events ####
-
-User agents MUST support Touch Events version 1 [[!TOUCH-EVENTS]].
-
-#### CSSOM View ####
-
-User agents MUST support CSSOM View [[!CSSOM-VIEW]].
-
-### Storage ###
-
-#### Web Storage ####
-
-User agents MUST support the Web Storage API [[!WEBSTORAGE]].
-
-#### Indexed Database ####
-
-User agents MUST support the Indexed Database API [[!INDEXEDDB]].
-
-#### File ####
-
-User agents MUST support the File API [[!FILE-API]].
-
-#### Quota Management ####
-
-User agents MUST support the Quota Management API [[!QUOTA-API]].
-
-### Networking ###
-
-#### XMLHttpRequest ####
-
-User agents MUST support the XMLHttpRequest API [[!XMLHTTPREQUEST]].
-
-<p class='issue' data-number=14>The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.</p>
-
-#### Web Messaging ####
-
-User agents MUST support the Web Messaging API [[!POSTMSG]].
-
-#### Web Workers ####
-
-User agents MUST support the Web Workers API [[!WEBWORKERS]].
-
-<p class='issue' data-number=15>Do we need both Shared and Web Workers?</p>
-
-### Sensors ###
-
-#### Geolocation ####
-
-User agents MUST support the Geolocation API [[!GEOLOCATION-API]].
-
-#### DeviceOrientation Event ####
-
-User agents MUST support the DeviceOrientation Event [[!DEVICE-ORIENTATION]].
-
-### Multimedia ###
-
-#### Canvas2D ####
-
-User agents MUST support the Canvas2D API [[!CANVAS-2D]].
-
-<p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
-
-#### Timing control for script-based animations ####
-
-User agents MUST support the Timing control for script-based animations API [[!ANIMATION-TIMING]].
-
-Network
--------
-
-### HTTP ###
-
-User agents MUST support HTTP 1.1 [[!HTTP11]].
-
-### CORS ###
-
-User agents MUST support Cross-Origin Resource Sharing [[!CORS]].
-
-### `data:` scheme ###
-
-User agents MUST support the `data:` URI scheme [[!RFC2397]].
-
-### `mailto:` scheme ###
-
-User agents MUST support the `mailto:` URI scheme [[!RFC6068]].
-
-### `tel:` scheme ###
-
-User agents MUST support the `tel:` URI scheme [[!RFC3966]].
-
-### `sms:` scheme ###
-
-User agents MUST support the `sms:` URI scheme [[!RFC5724]].
-
-### `mmsto:` scheme ###
-
-User agents MUST support the `mmsto:` URI scheme [[!OMA-URI-SCHEME]].
+    <section id='abstract'>
+      This specification describes the core set of technologies that define the baseline platform
+      for mobile Web applications to target. It does not create any new technology but rather syndicates
+      them into a globally coherent view of the mobile Web platform.
+    </section>
+    
+    <section id='sotd'>
+      Comments on this document are welcomed and should be made on the [public-coremob@w3.org mailing list](http://lists.w3.org/Archives/Public/public-coremob/). The source code is available on [GitHub](https://github.com/coremob/coremob-2012).
+    </section>
+    
+    <section class='informative'>
+      Introduction
+      ------------
+      
+      The goal of the Core Mobile Web Platform Community Group is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to agree on core features developers can depend on.
+      
+      This specification is the result of this work. It attempts to carefully balances developer needs and implementation constraints as of today. Updated versions of this document will be released as the platform evolves and new technologies become broadly available.
+    </section>
+    
+    <section id='conformance'>
+      A User Agent conforms to Core Mobile Web Platform 2012 if it conforms to all listed specifications _and their dependencies_.
+      
+      However, the inability of a User Agent to conform to one of the listed specifications due to limitations of the device does not make the User Agent non-conformant. (For example, a User Agent is not required to support Touch Events on a device devoid of a touch screen.)
+    </section>
+    
+    Markup
+    ------
+    
+    This section describes requirements for markup languages and related features.
+    
+    ### HTML5 ###
+    
+    User agents MUST support HTML5 [[!HTML5]].
+    
+    <p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
+    
+    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
+    
+    <p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
+    
+    ### HTML Media Capture ###
+    
+    User agents MUST support HTML Media Capture [[!HTMLMEDIACAPTURE]].
+    
+    ### SVG ###
+    
+    User agents MUST support Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]].
+    
+    ### Device Adaptation ###
+    
+    User agents MUST support CSS Device Adaptation [[!CSS-ADAPTATION]] as specified through a `meta` viewport element.
+    
+    ### Application Configuration ###
+    
+    <p class='issue' data-number=6>WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).</p>
+    
+    ### View Orientation ###
+    
+    <p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
+    
+    ### Chromeless Mode ###
+    
+    <p class='issue' data-number=8>Within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/). Could end up as an attribute of [Application Configuration](#application-configuration).</p>
+    
+    Style
+    -----
+    
+    This section defines requirements for CSS and other, styling-related features.
+    
+    ### CSS 2.1 ###
+    
+    User agents MUST support CSS 2.1 [[!CSS21]].
+    
+    ### Processing ###
+    
+    #### Values ####
+    
+    User agents MUST support CSS Values [[!CSS3VAL]].
+    
+    <p class='issue' data-number=9>CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).</p>
+    
+    #### Media Queries ####
+    
+    User agents MUST support CSS Media Queries [[!CSS3-MEDIAQUERIES]].
+    
+    #### Selectors ####
+    
+    User agents MUST support CSS Selectors Level 3 [[!SELECTORS]].
+    
+    <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
+    
+    ### Graphical ###
+    
+    #### Backgrounds and Borders ####
+    
+    User agents MUST support CSS Backgrounds and Borders [[!CSS3-BG]].
+    
+    #### Color ####
+    
+    User agents MUST support CSS Color [[!CSS3COLOR]].
+    
+    #### Image Values and Replaced Content ####
+    
+    User agents MUST support CSS Image Values and Replaced Content [[!CSS3-IMAGES]].
+    
+    <p class='issue' data-number=10>CSS Image Values is a CR. Questionable content is marked at risk, which is reassuring.</p>
+    
+    ### Layout ###
+    
+    #### Flexbox ####
+    
+    User agents MUST support CSS Flexible Box Layout [[!FLEXBOX]].
+    
+    #### Transforms ####
+    
+    User agents MUST support CSS Transforms [[!CSS3-TRANSFORMS]].
+    
+    ### Typography ###
+    
+    #### CSS Fonts ####
+    
+    User agents MUST support CSS Fonts [[!CSS3-FONTS]].
+    
+    #### WOFF ####
+    
+    User agents MUST support <acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]].
+    
+    #### CSS Text ####
+    
+    User agents MUST support CSS Text [[!CSS3TEXT]].
+    
+    <p class='issue' data-number=13>Spec in WD. We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.</p>
+    
+    ### Animations and Transitions ###
+    
+    #### Animations ####
+    
+    User agents MUST support CSS Animations [[!CSS3-ANIMATIONS]].
+    
+    #### Transitions ####
+    
+    User agents MUST support CSS Transitions [[!CSS3-TRANSITIONS]].
+    
+    Scripting
+    ---------
+    
+    This section defines which scripting support in language and APIs are required.
+    
+    ### ECMAScript ###
+    
+    User agents MUST support ECMAScript, Edition 5.1 [[!ECMA-262-51]].
+    
+    ### DOM ###
+    
+    #### DOM4 ####
+    
+    User agents MUST support the DOM4 API [[!DOM4]].
+    
+    #### Selectors ####
+    
+    User agents MUST support the Selectors API level 2 [[!SELECTORS-API2]].
+    
+    #### Touch Events ####
+    
+    User agents MUST support Touch Events version 1 [[!TOUCH-EVENTS]].
+    
+    #### CSSOM View ####
+    
+    User agents MUST support CSSOM View [[!CSSOM-VIEW]].
+    
+    ### Storage ###
+    
+    #### Web Storage ####
+    
+    User agents MUST support the Web Storage API [[!WEBSTORAGE]].
+    
+    #### Indexed Database ####
+    
+    User agents MUST support the Indexed Database API [[!INDEXEDDB]].
+    
+    #### File ####
+    
+    User agents MUST support the File API [[!FILE-API]].
+    
+    #### Quota Management ####
+    
+    User agents MUST support the Quota Management API [[!QUOTA-API]].
+    
+    ### Networking ###
+    
+    #### XMLHttpRequest ####
+    
+    User agents MUST support the XMLHttpRequest API [[!XMLHTTPREQUEST]].
+    
+    <p class='issue' data-number=14>The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.</p>
+    
+    #### Web Messaging ####
+    
+    User agents MUST support the Web Messaging API [[!POSTMSG]].
+    
+    #### Web Workers ####
+    
+    User agents MUST support the Web Workers API [[!WEBWORKERS]].
+    
+    <p class='issue' data-number=15>Do we need both Shared and Web Workers?</p>
+    
+    ### Sensors ###
+    
+    #### Geolocation ####
+    
+    User agents MUST support the Geolocation API [[!GEOLOCATION-API]].
+    
+    #### DeviceOrientation Event ####
+    
+    User agents MUST support the DeviceOrientation Event [[!DEVICE-ORIENTATION]].
+    
+    ### Multimedia ###
+    
+    #### Canvas2D ####
+    
+    User agents MUST support the Canvas2D API [[!CANVAS-2D]].
+    
+    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
+    
+    #### Timing control for script-based animations ####
+    
+    User agents MUST support the Timing control for script-based animations API [[!ANIMATION-TIMING]].
+    
+    Network
+    -------
+    
+    ### HTTP ###
+    
+    User agents MUST support HTTP 1.1 [[!HTTP11]].
+    
+    ### CORS ###
+    
+    User agents MUST support Cross-Origin Resource Sharing [[!CORS]].
+    
+    ### `data:` scheme ###
+    
+    User agents MUST support the `data:` URI scheme [[!RFC2397]].
+    
+    ### `mailto:` scheme ###
+    
+    User agents MUST support the `mailto:` URI scheme [[!RFC6068]].
+    
+    ### `tel:` scheme ###
+    
+    User agents MUST support the `tel:` URI scheme [[!RFC3966]].
+    
+    ### `sms:` scheme ###
+    
+    User agents MUST support the `sms:` URI scheme [[!RFC5724]].
+    
+    ### `mmsto:` scheme ###
+    
+    User agents MUST support the `mmsto:` URI scheme [[!OMA-URI-SCHEME]].
   </body>
 </html>
