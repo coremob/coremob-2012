@@ -45,7 +45,7 @@
     
     <section class='informative'>
       Introduction
-      ------------
+      ============
       
       The goal of the Core Mobile Web Platform Community Group is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to agree on core features developers can depend on.
       
@@ -58,6 +58,71 @@
       However, the inability of a User Agent to conform to one of the listed specifications due to limitations of the device does not make the User Agent non-conformant. (For example, a User Agent is not required to support Touch Events on a device devoid of a touch screen.)
     </section>
     
+    Use cases
+    =========
+    
+    Update a profile picture
+    ------------------------
+    
+    John wants to update the profile picture of the instant messaging service he is using. The service offers the option to take a picture using the device's camera and to reformat it to the right dimensions. John does so and immediately uploads the result to use as his new profile picture.
+    
+    Take pictures in a remote area without network coverage
+    -------------------------------------------------------
+    
+    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. She decides to post-process some of the pictures she took by applying ready-made filters. The pictures are stored locally. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
+    
+    Derived requirements: <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
+    
+    Build A 2D Game
+    ---------------
+    
+    Fantastic Rafaela is a platform game, the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each levels consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The game is played in landscape mode.
+    
+    Building a Ball-in-a-maze puzzle
+    --------------------------------
+    
+    Ball-in-a-maze puzzles involve titling a labyrinth around in order to move a ball towards a goal (usually its center or a hole). This is pretty straightforward to transpose onto a mobile device equipped with an accelerometer: the output of the accelerometer are used to position the ball and move it along.
+    
+    In order to avoid disrupting game play, auto-rotation of the content must be completely inhibited for such game.
+    
+    Derived Requirements
+    ====================
+    
+    The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef"></a>.
+    
+    <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
+    
+    <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations.</p>
+    
+    <p id="pic-storage" class=req>It MUST be possible to store pictures locally and retrieve them without requiring further permission from the user.</p>
+    
+    <p id="pic-upload" class=req>It MUST be possible to asynchronously upload pictures to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
+    
+    <p id="orientation-lock" class=req>A web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
+    
+    <p id="fullscreen" class=req>It MUST be possible for an application to signal to the User Agent that it wants to operate fullscreen and not inside of the browser's chrome.</p>
+    
+    <p id="geolocation" class=req>It MUST be possible to obtain the device's current geographic coordinates provided the user consents to sharing those.</p>
+    
+    <p id="position" class=req>It MUST be possible to register to receive updates when the position of the device changes.</p>
+    
+    <p id="framerate" class=req>It MUST be able to run a canvas tag at 30FPS in fullscreen mode.</p>
+    
+    <p id="audio-playback" class=req>Multiple sound files MUST be able to play simultaneously with minimal latency.</p>
+    
+    <p id="data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
+    
+    ### Out of Scope
+    
+    Direct access to multimedia streams are out of the scope of this document.
+    
+    Programatic locking and/or unlocking of the device's orientation are out of scope.
+    
+    Specifications which meet the derived requirements
+    ==================================================
+    
+    This section lists existing specifications which address the requirements expressed in <a href="#use-cases" class="sectionRef"></a>.
+    
     Markup
     ------
     
@@ -68,8 +133,6 @@
     User agents MUST support HTML5 [[!HTML5]].
     
     <p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
-    
-    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
     
     <p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
     
@@ -84,19 +147,7 @@
     ### Device Adaptation ###
     
     User agents MUST support CSS Device Adaptation [[!CSS-ADAPTATION]] as specified through a `meta` viewport element.
-    
-    ### Application Configuration ###
-    
-    <p class='issue' data-number=6>WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).</p>
-    
-    ### View Orientation ###
-    
-    <p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
-    
-    ### Chromeless Mode ###
-    
-    <p class='issue' data-number=8>Within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/). Could end up as an attribute of [Application Configuration](#application-configuration).</p>
-    
+
     Style
     -----
     
@@ -121,8 +172,6 @@
     #### Selectors ####
     
     User agents MUST support CSS Selectors Level 3 [[!SELECTORS]].
-    
-    <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
     
     ### Graphical ###
     
@@ -255,8 +304,6 @@
     
     User agents MUST support the Canvas2D API [[!CANVAS-2D]].
     
-    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
-    
     #### Timing control for script-based animations ####
     
     User agents MUST support the Timing control for script-based animations API [[!ANIMATION-TIMING]].
@@ -291,5 +338,36 @@
     ### `mmsto:` scheme ###
     
     User agents MUST support the `mmsto:` URI scheme [[!OMA-URI-SCHEME]].
+    
+    Quality of Implementations Requirements
+    =======================================
+    
+    These are requirements that cannot be expressed in terms of conformance to a specification.
+    
+    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
+    
+    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
+    
+    Requirements unmet by current specification work
+    ================================================
+    
+    Application Configuration
+    -------------------------
+    
+    <p class='issue' data-number=6>WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).</p>
+    
+    View Orientation
+    ----------------
+    
+    <p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
+    
+    Chromeless Mode
+    ---------------
+    
+    <p class='issue' data-number=8>Within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/). Could end up as an attribute of [Application Configuration](#application-configuration).</p>
+    
+    ### Momentum and infinite scrolling ###
+    
+    <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
   </body>
 </html>
