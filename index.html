@@ -34,32 +34,110 @@
   </head>
   <body>
     <section id='abstract'>
-      This specification describes the core set of technologies that define the baseline platform
-      for mobile Web applications to target. It does not create any new technology but rather syndicates
-      them into a globally coherent view of the mobile Web platform.
+        The W3C Core Mobile Web Platform Community Group (Coremob) was established with the objective of helping to make the Web a compelling platform for developing modern mobile applications. The motivation for that is the widespread view that the Web does not represent a compelling platform for mobile applications today.
+
+        This document presents a survey of the state of mobile Web technology, with the purpose of promoting understanding of which areas of Web technology are in need of development, and prioritization of those areas for specification, implementation and testing.
+
+        The document presents a small number of simple mobile Web application use cases. It goes on to list features that the underlying mobile Web platform needs to offer to support those use cases. It then lists specifications of technology (primarily W3C Recommendations) that describe those features - and also notes the current state of development of such specifications, noting also where such specification do not at present exist.
+
+        Other aspects of Coremob's work, which includes the collation and specification of test suites to assess conformance to the specification, and the specification of a framework within which such conformance testing might be assessed are referenced.
     </section>
     
     <section id='sotd'>
-      Comments on this document are welcomed and should be made on the [public-coremob@w3.org mailing list](http://lists.w3.org/Archives/Public/public-coremob/). The source code is available on [GitHub](https://github.com/coremob/coremob-2012).
+      Comments on this document are not only welcomed but are actively solicited and should be made on the [public-coremob@w3.org mailing list](http://lists.w3.org/Archives/Public/public-coremob/). The source code is available on [GitHub](https://github.com/coremob/coremob-2012).
     </section>
     
-    <section class='informative'>
-      Introduction
-      ============
+Introduction
+============
       
-      The goal of the Core Mobile Web Platform Community Group is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to agree on core features developers can depend on.
-      
-      This specification is the result of this work. It attempts to carefully balances developer needs and implementation constraints as of today. Updated versions of this document will be released as the platform evolves and new technologies become broadly available.
-    </section>
-    
-    <section id='conformance'>
-      A User Agent conforms to Core Mobile Web Platform 2012 if it conforms to all listed specifications _and their dependencies_.
-      
-      However, the inability of a User Agent to conform to one of the listed specifications due to limitations of the device does not make the User Agent non-conformant. (For example, a User Agent is not required to support Touch Events on a device devoid of a touch screen.)
-    </section>
-    
+Quoting from its [charter](http://www.w3.org/community/coremob/charter/): 
+
+> The goal of the Core Mobile Web Platform (Coremob) Community Group (CG) is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to:
+
+> 1. Agree on core features developers can depend on. These will be defined by reference to a variety of other specifications from the W3C and other standards bodies.
+> 1. Compile related conformance test suites.
+> 1. Provide to W3C (and non-W3C) groups use cases, scenarios, and other input to drive successful mobile deployment.
+
+This document is the initial output of the Community Group. Its focus is items 1 and 3 from its charter above.
+
+### History of this document
+
+It had originally been the intent of the Community Group to produce a testable (and hence open to conformance testing) specification of a subset of mobile Web related technologies. The intention was that that subset satisfied a number of simple use cases for the development of mobile Web applications. 
+
+Earlier drafts of this document sought to identify a specific set of technologies. The intention was that developers would be able to rely upon this set of technologies being consistently present and interoperably implemented across a wide range of browsers. The set of technologies was described as being "aspirational" rather than a reflection of the state of implementation by any number of browsers (see below [Aspirational nature of the document](#aspirational-nature-of-the-document) for a discussion of the aspirational aspect, as construed in this revision). By identifying this set of technologies it would then be possible to identify a set of conformance tests by which interoperability could be assessed and accelerated.
+
+As the work of the CG progressed it became increasingly clear that the use cases for selection of technology specifications needed to be  provided, in order to justify the selection of particular technologies. It also became clear that where a choice existed for implementation of a required technology feature that needed to be noted, as did the lack of availability or extreme immaturity of any such specifications.
+
+At this point, the initial objective of providing the basis of a set of conformance tests proved not to be viable. The group faced the choice either of limiting the choice of technologies to those at a suitable state of maturity to be testable, which would have resulted in inability to match the use case requirements. The alternative being to specify the use cases and the consequent need for technology features. The consequences of such a choice being that few of those features would be testable in principle, because of no specification, let alone in practice. 
+
+The group chose the latter of these courses of action on the basis that it did not wish to compromise the already limited set of use cases.
+
+### Purpose
+
+As a result of the considerations documented under [History of this document](#history-of-this-document) above, the document's current purpose is to act as a clarion call to its audience that there is a considerable amount of work to do in specifying Web technologies so that the Web could indeed be a compelling platform for the implementation of modern mobile Web applications.
+
+While it had been the original intention of this document to provide guidance for developers on a set of features that they can rely on to be commonly and correctly implemented, this goal has not been abandoned, merely deferred somewhat to future work of the group to be undertaken as soon as it is practical.
+
+The intention of this document and subsequent editions, in regard of developers, is to solicit feedback on the use cases and on specific technology areas that are problematic, when used in a mobile context. Developers are especially encouraged to contribute to the work of the CG, since it is hoped that such participation will reduce future maintenance and development costs for them and will also provide a means by which developers' voices may be heard by other constituencies that need to hear them.
+
+#### Aspirational nature of the document
+
+It's worth re-iterating, at this point, that the group is not expressing the judgment that it is not possible to use the Web platform to build a wide variety of application that can be used in a mobile context. Indeed, there are applications that can be built on the Web platform that work well in a mobile delivery context. The group notes, though, that those applications are not usually specifically mobile in their use cases and tend to be similar in nature to applications that have desktop use cases as much as they have mobile use cases.
+
+That view must, however, be expressed with the caveat that there are many "quality of implementation" issues that developers may encounter. For example, the frame rate achievable when developing mobile games may not be sufficient, in some cases, and as another example the synchronization of playing sounds may not be adequate.
+
+The key point, here, is that mobile devices often have capabilities (such as a camera) or circumstances of use (such as periods off line, or frequent periods with low bandwidth for data transfer) that make mobile both a more rewarding environment for creation of applications and a more difficult environment for such implementation too.
+
+With the rapid increase in uptake of use of mobile devices, both in developed markets and in less developed markets (often as the only means of Web access in those markets), the CG believes that closing the gap between what can be achieved using Web technology on mobile and what can be achieved using "native application implementations" needs to narrow, urgently.
+
+### Audience
+
+The primary audience for this document is hence standardization groups within the W3C as well as equipment manufacturers and browser vendors. The CG also intends it to be of interest to others in it chartered constituency, especially developers, for feedback on the selection of use cases and the derivation of technology requirements from those use cases.
+
+### Conformance
+
+Since it is more a "state of the nation" discussion and is not yet the basis of any test suites, this document does not express any conformance requirements.
+
+### Other aspects of the CG's work
+
+Other aspects of the CG's work, as mentioned in its charter continue in parallel to the development of this document. Those activities include a "Gap analysis" of where there are existing test suites relevant to the technologies identified in this document, as well as discussion of a Test Framework within which to execute tests of the conformance of implementations of technologies identified here.
+
+The CG's [Web site](http://www.w3.org/community/coremob/) and [Wiki](http://www.w3.org/community/coremob/wiki/) contain links to various aspects of the group's work.
+
+### Structure
+
+The document has the following structure:
+
+1. Introduction
+
+    This section, containing information about the document, its history and its scope.
+
+2. Use Cases
+
+    Discusses the Use Cases that have been used to derive the requirements of Web technologies.
+
+3. Required Technologies
+
+    Discusses in abstract terms what technologies are needed to support the use cases.
+
+4. Specifications Selected
+
+    Discusses the specifications selected to implement "required technologies".
+
+    1. Quality Of Implementation
+
+        Discusses aspects of implementations of some of the selected technologies.
+
+    2. Missing Specifications
+
+        Discusses technologies needed but not specified.
+
     Use cases
     =========
+
+    The basis of selection of the Use Cases is a survey [references] carried out which assessed the top 10 "Native apps" .... {discuss here where this all starts}
+
+    The following are {discuss what they are}
     
     Update a profile picture
     ------------------------
@@ -89,6 +167,8 @@
     ====================
     
     The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef"></a>.
+
+    {er, well we have a bit of work to do here, somehow need to introduce a dependency on HTML(5) HTTP etc, shld be easy enough})}
     
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
