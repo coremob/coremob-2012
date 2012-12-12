@@ -31,6 +31,14 @@
       };
     </script>
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
+    <style>
+    table {border-collapse: collapse; border: 1px solid #bec9d9}
+    td, th, caption {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
+    caption {color: #005A9C; background-color: #FEEDE2; }
+    th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
+    tbody tr th {text-align: left;}
+    </style>
+
   </head>
   <body style="max-width:45em">
     <section id='abstract'>
@@ -213,223 +221,104 @@ The document has the following structure:
     Specifications which meet the derived requirements
     ==================================================
     
-    This section lists existing specifications which address the requirements expressed in <a href="#use-cases" class="sectionRef"></a>.
-    
-    Markup
-    ------
-    
-    This section describes requirements for markup languages and related features.
-    
-    ### HTML5 ###
-    
-    User agents MUST support HTML5 [[!HTML5]].
-    
-    <p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
-    
-    <p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
-    
-    ### HTML Media Capture ###
-    
-    User agents MUST support HTML Media Capture [[!HTMLMEDIACAPTURE]].
-    
-    ### SVG ###
-    
-    User agents MUST support Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]].
-    
-    ### Device Adaptation ###
-    
-    User agents MUST support CSS Device Adaptation [[!CSS-ADAPTATION]] as specified through a `meta` viewport element.
+    This section lists existing specifications which address the requirements expressed in <a href="#use-cases" class="sectionRef"></a> as well as referencing [Standards for Web Applications on Mobile: current state and roadmap](http://www.w3.org/Mobile/mobile-web-app-state/) which is regularly updated to reflect current status of standardization and implementation.
 
-    Style
-    -----
+    **todo** think about how to make that reference.
+
+    **todo** the issues and notes need to be made more in keeping with the style of the tables
+
+    **todo** say something about the need to "on the whole" take the whole of a specification or ask the WG to subset it
     
-    This section defines requirements for CSS and other, styling-related features.
+<table>
+  <thead>
+    <tr><th>Specification<th>Note<th>Requirements Addressed<th>Issues
+  </thead>
+  <caption>Markup</caption>
+  <tbody>
+    <tr><th class="rowhead">HTML5 [[!HTML5]]<td>1<td>**todo**<td>1, 2
+    <tr><th class="rowhead">HTML Media Capture [[!HTMLMEDIACAPTURE]]<td><td>**todo**<td>
+    <tr><th class="rowhead">Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]<td><td>**todo**<td>
+    <tr><th class="rowhead">CSS Device Adaptation [[!CSS-ADAPTATION]]<td>2<td>**todo**<td>
+  </tbody>
+  <table>
+    <p class="note" data-number=1>e.g. "The whole of HTML5 is required"</p>
+    <p class="note" data-number=2>as specified through a `meta` viewport element</p>
+<p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
     
-    ### CSS 2.1 ###
-    
-    User agents MUST support CSS 2.1 [[!CSS21]].
-    
-    ### Processing ###
-    
-    #### Values ####
-    
-    User agents MUST support CSS Values [[!CSS3VAL]].
-    
+<p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
+<table>
+  <thead>
+    <tr><th>Specification<th>Note<th>Requirements Addressed<th>Issues
+  </thead>
+  <caption>Style</caption>
+  <tbody>
+    <tr><th>CSS 2.1 [[!CSS21]]<td><td><td>
+    <tr><th>CSS Values [[!CSS3VAL]]<td><td><td>9
+    <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td><td><td>
+    <tr><th>CSS Selectors Level 3 [[!SELECTORS]]<td><td><td>
+    <tr><th>CSS Backgrounds and Borders [[!CSS3-BG]]<td><td><td>
+    <tr><th>CSS Color [[!CSS3COLOR]]<td><td><td>
+    <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td><td><td>10
+    <tr><th>CSS Flexible Box Layout [[!FLEXBOX]]<td><td><td>
+    <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td><td><td>
+    <tr><th>CSS Fonts [[!CSS3-FONTS]]<td><td><td>
+    <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td><td><td>
+    <tr><th>CSS Text [[!CSS3TEXT]]<td><td><td>13
+    <tr><th>CSS Animations [[!CSS3-ANIMATIONS]]<td><td><td>
+    <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td><td><td>
+
+</table>
+
     <p class='issue' data-number=9>CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).</p>
-    
-    #### Media Queries ####
-    
-    User agents MUST support CSS Media Queries [[!CSS3-MEDIAQUERIES]].
-    
-    #### Selectors ####
-    
-    User agents MUST support CSS Selectors Level 3 [[!SELECTORS]].
-    
-    ### Graphical ###
-    
-    #### Backgrounds and Borders ####
-    
-    User agents MUST support CSS Backgrounds and Borders [[!CSS3-BG]].
-    
-    #### Color ####
-    
-    User agents MUST support CSS Color [[!CSS3COLOR]].
-    
-    #### Image Values and Replaced Content ####
-    
-    User agents MUST support CSS Image Values and Replaced Content [[!CSS3-IMAGES]].
-    
     <p class='issue' data-number=10>CSS Image Values is a CR. Questionable content is marked at risk, which is reassuring.</p>
-    
-    ### Layout ###
-    
-    #### Flexbox ####
-    
-    User agents MUST support CSS Flexible Box Layout [[!FLEXBOX]].
-    
-    #### Transforms ####
-    
-    User agents MUST support CSS Transforms [[!CSS3-TRANSFORMS]].
-    
-    ### Typography ###
-    
-    #### CSS Fonts ####
-    
-    User agents MUST support CSS Fonts [[!CSS3-FONTS]].
-    
-    #### WOFF ####
-    
-    User agents MUST support <acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]].
-    
-    #### CSS Text ####
-    
-    User agents MUST support CSS Text [[!CSS3TEXT]].
-    
     <p class='issue' data-number=13>Spec in WD. We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.</p>
     
-    ### Animations and Transitions ###
-    
-    #### Animations ####
-    
-    User agents MUST support CSS Animations [[!CSS3-ANIMATIONS]].
-    
-    #### Transitions ####
-    
-    User agents MUST support CSS Transitions [[!CSS3-TRANSITIONS]].
-    
-    Scripting
-    ---------
-    
-    This section defines which scripting support in language and APIs are required.
-    
-    ### ECMAScript ###
-    
-    User agents MUST support ECMAScript, Edition 5.1 [[!ECMA-262-51]].
-    
-    ### DOM ###
-    
-    #### DOM4 ####
-    
-    User agents MUST support the DOM4 API [[!DOM4]].
-    
-    #### Selectors ####
-    
-    User agents MUST support the Selectors API level 2 [[!SELECTORS-API2]].
-    
-    #### Touch Events ####
-    
-    User agents MUST support Touch Events version 1 [[!TOUCH-EVENTS]].
-    
-    #### CSSOM View ####
-    
-    User agents MUST support CSSOM View [[!CSSOM-VIEW]].
-    
-    ### Storage ###
-    
-    #### Web Storage ####
-    
-    User agents MUST support the Web Storage API [[!WEBSTORAGE]].
-    
-    #### Indexed Database ####
-    
-    User agents MUST support the Indexed Database API [[!INDEXEDDB]].
-    
-    #### File ####
-    
-    User agents MUST support the File API [[!FILE-API]].
-    
-    #### Quota Management ####
-    
-    User agents MUST support the Quota Management API [[!QUOTA-API]].
-    
-    ### Networking ###
-    
-    #### XMLHttpRequest ####
-    
-    User agents MUST support the XMLHttpRequest API [[!XMLHTTPREQUEST]].
-    
-    <p class='issue' data-number=14>The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.</p>
-    
-    #### Web Messaging ####
-    
-    User agents MUST support the Web Messaging API [[!POSTMSG]].
-    
-    #### Web Workers ####
-    
-    User agents MUST support the Web Workers API [[!WEBWORKERS]].
-    
-    <p class='issue' data-number=15>Do we need both Shared and Web Workers?</p>
-    
-    ### Sensors ###
-    
-    #### Geolocation ####
-    
-    User agents MUST support the Geolocation API [[!GEOLOCATION-API]].
-    
-    #### DeviceOrientation Event ####
-    
-    User agents MUST support the DeviceOrientation Event [[!DEVICE-ORIENTATION]].
-    
-    ### Multimedia ###
-    
-    #### Canvas2D ####
-    
-    User agents MUST support the Canvas2D API [[!CANVAS-2D]].
-    
-    #### Timing control for script-based animations ####
-    
-    User agents MUST support the Timing control for script-based animations API [[!ANIMATION-TIMING]].
-    
-    Network
-    -------
-    
-    ### HTTP ###
-    
-    User agents MUST support HTTP 1.1 [[!HTTP11]].
-    
-    ### CORS ###
-    
-    User agents MUST support Cross-Origin Resource Sharing [[!CORS]].
-    
-    ### `data:` scheme ###
-    
-    User agents MUST support the `data:` URI scheme [[!RFC2397]].
-    
-    ### `mailto:` scheme ###
-    
-    User agents MUST support the `mailto:` URI scheme [[!RFC6068]].
-    
-    ### `tel:` scheme ###
-    
-    User agents MUST support the `tel:` URI scheme [[!RFC3966]].
-    
-    ### `sms:` scheme ###
-    
-    User agents MUST support the `sms:` URI scheme [[!RFC5724]].
-    
-    ### `mmsto:` scheme ###
-    
-    User agents MUST support the `mmsto:` URI scheme [[!OMA-URI-SCHEME]].
+
+<table>
+  <thead>
+    <tr><th>Specification<th>Note<th>Requirements Addressed<th>Issues
+  </thead>
+  </tbody>
+  <caption>Scripting</caption>
+  <tbody>
+    <tr><th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td><td><td>
+    <tr><th> DOM4 API [[!DOM4]]<td><td><td>
+    <tr><th>Selectors API level 2 [[!SELECTORS-API2]]<td><td><td>
+    <tr><th>Touch Events version 1 [[!TOUCH-EVENTS]]<td><td><td>
+    <tr><th>CSSOM View [[!CSSOM-VIEW]]<td><td><td>
+    <tr><th>Web Storage API [[!WEBSTORAGE]]<td><td><td>
+    <tr><th>Indexed Database API [[!INDEXEDDB]]<td><td><td>
+    <tr><th>File API [[!FILE-API]]<td><td><td>
+    <tr><th>Quota Management API [[!QUOTA-API]]<td><td><td>
+    <tr><th>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td><td><td>14
+    <tr><th>Web Messaging API [[!POSTMSG]]<td><td><td>
+    <tr><th>Web Workers API [[!WEBWORKERS]]<td><td><td>
+    <tr><th>Geolocation API [[!GEOLOCATION-API]]<td><td><td>
+    <tr><th>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td><td><td>
+    <tr><th>Canvas2D API [[!CANVAS-2D]]<td><td><td>
+    <tr><th>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td><td><td>
+
+  </tbody>
+</table>
+<p class='issue' data-number=14>The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.</p>
+
+<table>
+  <thead>
+    <tr><th>Specification<th>Note<th>Requirements Addressed<th>Issues
+  </thead>
+  <caption>Network</caption>
+  <tbody>
+    <tr><th>HTTP 1.1 [[!HTTP11]]<td><td><td>
+    <tr><th>Cross-Origin Resource Sharing [[!CORS]]<td><td><td>
+    <tr><th>The `data:` URI scheme [[!RFC2397]]<td><td><td>
+    <tr><th>The `mailto:` URI scheme [[!RFC6068]]<td><td><td>
+    <tr><th>The `tel:` URI scheme [[!RFC3966]]<td><td><td>
+    <tr><th>The `sms:` URI scheme [[!RFC5724]]<td><td><td>
+    <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEME]]<td><td><td>
+  </tbody>
+</table>
+
+
     
     Quality of Implementations Requirements
     =======================================
