@@ -161,6 +161,13 @@ The document has the following structure:
     
     Derived requirements: <a href="#offline" class="reqRef"></a>, <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#file-storage" class="reqRef"></a>, <a href="#file-upload" class="reqRef"></a>.
     
+    Record voice memos
+    ------------------
+    
+    While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed. The application notifies John when the transcription is finished and the content of his voice memo is available as raw text.
+    
+    Derived requirements: <a href="#offline" class="reqRef"></a>, <a href="#microphone-access" class="reqRef"></a>, <a href="#file-storage" class="reqRef"></a>, <a href="#file-upload" class="reqRef"></a>, <a href="#server-sent-events" class="reqRef"></a>.
+    
     Build A 2D Game
     ---------------
     
@@ -179,6 +186,8 @@ The document has the following structure:
     <p id="offline" class=req>It MUST be possible to make an application available offline.</p>
     
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
+    
+    <p id="microphone-access" class=req>It MUST be possible to record audio clips using the device's microphone. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
     <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST not block the UI thread.</p>
     
@@ -199,6 +208,8 @@ The document has the following structure:
     <p id="audio-playback" class=req>Multiple sound files MUST be able to play simultaneously with minimal latency.</p>
     
     <p id="data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
+    
+    <p id="server-sent-events" class=req>A server MUST be able to notify its client.</p>
     
     ### Out of Scope
     
