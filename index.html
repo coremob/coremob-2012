@@ -159,7 +159,7 @@ The document has the following structure:
     
     Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready-made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
     
-    Derived requirements: <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-storage" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
+    Derived requirements: <a href="#offline" class="reqRef"></a>, <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-storage" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
     
     Build A 2D Game
     ---------------
@@ -181,6 +181,8 @@ The document has the following structure:
     The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef"></a>.
 
     {er, well we have a bit of work to do here, somehow need to introduce a dependency on HTML(5) HTTP etc, shld be easy enough})}
+    
+    <p id="offline" class=req>It MUST be possible to make an application available offline.</p>
     
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
