@@ -157,7 +157,7 @@ The document has the following structure:
     Take pictures in a remote area without network coverage
     -------------------------------------------------------
     
-    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. She decides to post-process some of the pictures she took by applying ready-made filters. The pictures are stored locally. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
+    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready-made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
     
     Derived requirements: <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-storage" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
     
@@ -184,7 +184,7 @@ The document has the following structure:
     
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
-    <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations.</p>
+    <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST not block the UI thread.</p>
     
     <p id="pic-storage" class=req>It MUST be possible to store pictures locally and retrieve them without requiring further permission from the user.</p>
     
