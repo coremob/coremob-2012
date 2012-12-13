@@ -159,7 +159,7 @@ The document has the following structure:
     
     Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready-made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
     
-    Derived requirements: <a href="#offline" class="reqRef"></a>, <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-storage" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
+    Derived requirements: <a href="#offline" class="reqRef"></a>, <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#file-storage" class="reqRef"></a>, <a href="#file-upload" class="reqRef"></a>.
     
     Build A 2D Game
     ---------------
@@ -188,9 +188,9 @@ The document has the following structure:
     
     <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST not block the UI thread.</p>
     
-    <p id="pic-storage" class=req>It MUST be possible to store pictures locally and retrieve them without requiring further permission from the user.</p>
+    <p id="file-storage" class=req>It MUST be possible to store files locally and retrieve them without requiring further permission from the user.</p>
     
-    <p id="pic-upload" class=req>It MUST be possible to asynchronously upload pictures to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
+    <p id="file-upload" class=req>It MUST be possible to asynchronously upload files to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
     
     <p id="orientation-lock" class=req>A web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
     
