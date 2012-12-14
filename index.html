@@ -194,6 +194,15 @@ The document has the following structure:
     <a href="#geolocation" class="reqRef"></a>,
     <a href="#position" class="reqRef"></a>.
     
+    View a regular website
+    ----------------------
+    
+    Anette is using her mobile device to access her bank's website. Although her bank has a dedicated native application _and_ a mobile version of its site, the information she's looking for is only available on the main site. She's nonetheless able to consult it because her mobile device supports the same set of Web standards her desktop browser does, and is capable of displaying that information despite the difference in screen size and pixel density.
+    
+    Derived requirements:
+    <a href="#interoperability" class="reqRef"></a>,
+    <a href="#viewport" class="reqRef"></a>.
+    
     Derived Requirements
     ====================
     
@@ -202,6 +211,8 @@ The document has the following structure:
     {er, well we have a bit of work to do here, somehow need to introduce a dependency on HTML(5) HTTP etc, shld be easy enough})}
     
     <p id="offline" class=req>It MUST be possible to make an application available offline.</p>
+    
+    <p id="viewport" class=req>The User Agent MUST be able to display both content specifically targeted at mobile devices and content designed for desktop.</p><!-- Viewport req is sketchy, might need revisiting. -->
     
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
