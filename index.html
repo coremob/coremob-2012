@@ -149,31 +149,59 @@ The document has the following structure:
 
     The following are {discuss what they are}
     
-    Update a profile picture
-    ------------------------
-    
-    John wants to update the profile picture of the instant messaging service he is using. The service offers the option to take a picture using the device's camera and to reformat it to the right dimensions. John does so and immediately uploads the result to use as his new profile picture.
-    
     Take pictures in a remote area without network coverage
     -------------------------------------------------------
     
-    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. She decides to post-process some of the pictures she took by applying ready-made filters. The pictures are stored locally. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
+    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready-made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
     
-    Derived requirements: <a href="#camera-access" class="reqRef"></a>, <a href="#pic-manipulation" class="reqRef"></a>, <a href="#pic-storage" class="reqRef"></a>, <a href="#pic-upload" class="reqRef"></a>.
+    Derived requirements:
+    <a href="#offline" class="reqRef"></a>,
+    <a href="#camera-access" class="reqRef"></a>,
+    <a href="#pic-manipulation" class="reqRef"></a>,
+    <a href="#file-storage" class="reqRef"></a>,
+    <a href="#file-upload" class="reqRef"></a>.
+    
+    Record voice memos
+    ------------------
+    
+    While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed. The application notifies John when the transcription is finished and the content of his voice memo is available as raw text.
+    
+    Derived requirements:
+    <a href="#offline" class="reqRef"></a>,
+    <a href="#microphone-access" class="reqRef"></a>,
+    <a href="#file-storage" class="reqRef"></a>,
+    <a href="#file-upload" class="reqRef"></a>,
+    <a href="#server-sent-events" class="reqRef"></a>.
     
     Build A 2D Game
     ---------------
     
-    Fantastic Rafaela is a platform game, the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each levels consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The game is played in landscape mode.
+    Fantastic Rafaela Sis' is a platform game the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each levels consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The character is controlled by tilting the device. Consequently, the game must be locked in landscape mode to avoid auto-rotation of the viewport interfering with the game play. It has a soundtrack per level and various sound effects.
     
-    Derived requirements: <a href="#orientation-lock" class="reqRef"></a>, <a href="#fullscreen" class="reqRef"></a>.
+    Derived requirements:
+    <a href="#orientation-lock" class="reqRef"></a>,
+    <a href="#fullscreen" class="reqRef"></a>,
+    <a href="#position" class="reqRef"></a>,
+    <a href="#framerate" class="reqRef"></a>,
+    <a href="#audio-playback" class="reqRef"></a>.
     
-    Building a Ball-in-a-maze puzzle
-    --------------------------------
+    Find the nearest subway station
+    -------------------------------
     
-    Ball-in-a-maze puzzles involve titling a labyrinth around in order to move a ball towards a goal (usually its center or a hole). This is pretty straightforward to transpose onto a mobile device equipped with an accelerometer: the output of the accelerometer are used to position the ball and move it along.
+    Jo uses public transportation to visit his clients scattered around town. In order to find his way around he relies on a Web application that is able to locate him on a map, display the closest subway station and indicate in which direction he should walk to find it.
     
-    In order to avoid disrupting game play, auto-rotation of the content must be completely inhibited for such game.
+    Derived requirements:
+    <a href="#geolocation" class="reqRef"></a>,
+    <a href="#position" class="reqRef"></a>.
+    
+    View a regular website
+    ----------------------
+    
+    Anette is using her mobile device to access her bank's website. Although her bank has a dedicated native application _and_ a mobile version of its site, the information she's looking for is only available on the main site. She's nonetheless able to consult it because her mobile device supports the same set of Web standards her desktop browser does, and is capable of displaying that information despite the difference in screen size and pixel density.
+    
+    Derived requirements:
+    <a href="#interoperability" class="reqRef"></a>,
+    <a href="#viewport" class="reqRef"></a>.
     
     Derived Requirements
     ====================
@@ -182,13 +210,19 @@ The document has the following structure:
 
     {er, well we have a bit of work to do here, somehow need to introduce a dependency on HTML(5) HTTP etc, shld be easy enough})}
     
+    <p id="offline" class=req>It MUST be possible to make an application available offline.</p>
+    
+    <p id="viewport" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices as well as content not designed with mobile in mind.</p>
+    
     <p id="camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
-    <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations.</p>
+    <p id="microphone-access" class=req>It MUST be possible to record audio clips using the device's microphone. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
-    <p id="pic-storage" class=req>It MUST be possible to store pictures locally and retrieve them without requiring further permission from the user.</p>
+    <p id="pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST not block the UI thread.</p>
     
-    <p id="pic-upload" class=req>It MUST be possible to asynchronously upload pictures to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
+    <p id="file-storage" class=req>It MUST be possible to store files locally and retrieve them without requiring further permission from the user.</p>
+    
+    <p id="file-upload" class=req>It MUST be possible to asynchronously upload files to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
     
     <p id="orientation-lock" class=req>A web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
     
@@ -198,11 +232,13 @@ The document has the following structure:
     
     <p id="position" class=req>It MUST be possible to register to receive updates when the position of the device changes.</p>
     
-    <p id="framerate" class=req>It MUST be able to run a canvas tag at 30FPS in fullscreen mode.</p>
+    <p id="framerate" class=req>It MUST be possible to draw multiple animated sprites at 30FPS in fullscreen mode.</p>
     
     <p id="audio-playback" class=req>Multiple sound files MUST be able to play simultaneously with minimal latency.</p>
     
     <p id="data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
+    
+    <p id="server-sent-events" class=req>A server MUST be able to notify its client.</p>
     
     ### Out of Scope
     
