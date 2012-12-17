@@ -173,7 +173,7 @@ The document has the following structure:
     <a href="#file-upload" class="reqRef"></a>,
     <a href="#server-sent-events" class="reqRef"></a>.
     
-    Build A 2D Game
+    Play a 2D Game
     ---------------
     
     Fantastic Rafaela Sis' is a platform game the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each levels consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The character is controlled by tilting the device. Consequently, the game must be locked in landscape mode to avoid auto-rotation of the viewport interfering with the game play. It has a soundtrack per level and various sound effects.
@@ -210,6 +210,8 @@ The document has the following structure:
 
     {er, well we have a bit of work to do here, somehow need to introduce a dependency on HTML(5) HTTP etc, shld be easy enough})}
     
+    <p id="interoperability" class=req>A User Agent MUST support technology commonly available on desktop browsers, so that websites and applications designed for desktop are still usable on mobile.</p>
+    
     <p id="offline" class=req>It MUST be possible to make an application available offline.</p>
     
     <p id="viewport" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices as well as content not designed with mobile in mind.</p>
@@ -238,13 +240,7 @@ The document has the following structure:
     
     <p id="data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
     
-    <p id="server-sent-events" class=req>A server MUST be able to notify its client.</p>
-    
-    ### Out of Scope
-    
-    Direct access to multimedia streams are out of the scope of this document.
-    
-    Programatic locking and/or unlocking of the device's orientation are out of scope.
+    <p id="server-sent-events" class=req>A server MUST be able to notify its clients.</p>
     
     Specifications which meet the derived requirements
     ==================================================
