@@ -32,11 +32,12 @@
     </script>
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
     <style>
-    table {border-collapse: collapse; border: 1px solid #bec9d9}
+    table {border-collapse: collapse; border: 1px solid #bec9d9; font-size: smaller}
     td, th, caption {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
     caption, tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
     th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
     tbody tr th {text-align: left;}
+    td.nb { font-size: smaller;}
     .rec {color: #005A9C; background-color: #99EE99}
     .ext {color: #005A9C; background-color: #99EE99}
     .cr {color: #005A9C; background-color: #EEEE99}
@@ -236,24 +237,24 @@ The document has the following structure:
 
     **todo** say something about the need to "on the whole" take the whole of a specification or ask the WG to subset it
     
+    ## Markup
 <table>
   <thead>
     <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
   </thead>
   <caption>Markup</caption>
   <tbody>
-    <tr><th>HTML5 [[!HTML5]]<td>CR<td>**todo**<td>1, 2, Note 1
-    <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td>WD<td>**todo**<td>
-    <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]<td>REC<td>**todo**<td>
-    <tr><th>CSS Device Adaptation [[!CSS-ADAPTATION]]<td>ED<td>**todo**<td>Note 2
+    <tr><th rowspan="2">HTML5 [[!HTML5]]<td class="cr" rowspan="2">CR<td>**todo**<td>1, 2, Note 1
+    <tr><td class="nb" colspan="2">Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?
+    <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td>**todo**<td>
+    <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]<td class="rec">REC<td>**todo**<td>
+    <tr><th rowspan="2">CSS Device Adaptation [[!CSS-ADAPTATION]]<td rowspan="2" class="ed">ED<td>**todo**<td>Note 2
+    <tr><td colspan="2" class="nb">as specified through a `meta` viewport element
   </tbody>
   <table>
-    <p class="note" data-number=1>e.g. "The whole of HTML5 is required"</p>
-    <p class="note" data-number=2>as specified through a `meta` viewport element</p>
-<p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
-    
-<p class='issue' data-number=2>Can the latency requirements be lightened a bit. Sub 10ms seems ideal, slightly longer latency times may be acceptable for most use cases.</p>
-<table>
+
+## Style
+  <table>
   <thead>
     <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
   </thead>
@@ -261,7 +262,8 @@ The document has the following structure:
   <tbody>
     <tr><th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><td>
     <tr><th colspan="4">Processing
-    <tr><th>CSS Values [[!CSS3VAL]]<td class="cr">CR<td><td>9
+    <tr><th rowspan="2">CSS Values [[!CSS3VAL]]<td class="cr" rowspan="2">CR<td><td>9
+    <tr><td class="nb" colspan="2">(Issue 9) CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
     <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td><td>
     <tr><th>CSS Selectors Level 3 [[!SELECTORS]]<td class="rec">REC<td><td>
     <tr><th colspan="4">Graphical
@@ -274,17 +276,15 @@ The document has the following structure:
     <tr><th colspan="4">Typography
     <tr><th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td><td>
     <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td><td>
-    <tr><th>CSS Text [[!CSS3TEXT]]<td class="wd">WD<td><td>13
+    <tr><th rowspan="2">CSS Text [[!CSS3TEXT]]<td class="wd" rowspan="2">WD<td><td>13
+    <tr><td class="nb" colspan="2">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
     <tr><th colspan="4">Animations and Transitions
     <tr><th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td><td>
     <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td><td>
 
 </table>
 
-    <p class='issue' data-number=9>CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).</p>
-    <p class='issue' data-number=10>CSS Image Values is a CR. Questionable content is marked at risk, which is reassuring.</p>
-    <p class='issue' data-number=13>Spec in WD. We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.</p>
-    
+## Scripting
 
 <table>
   <thead>
@@ -305,7 +305,8 @@ The document has the following structure:
     <tr><th>File API [[!FILE-API]]<td class="wd">WD<td><td>
     <tr><th>Quota Management API [[!QUOTA-API]]<td class="wd">WD<td><td>
     <tr><th colspan="4">Networking
-    <tr><th>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd">WD<td><td>14
+    <tr><th rowspan="2">XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd" rowspan="2">WD<td><td>14
+    <tr><td colspan="2" class="nb">(Issue 14) The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.
     <tr><th>Web Messaging API [[!POSTMSG]]<td class="ed">ED<td><td>
     <tr><th>Web Workers API [[!WEBWORKERS]]<td class="wd">WD<td><td>
     <tr><th colspan="4">Sensors
@@ -317,7 +318,9 @@ The document has the following structure:
 
   </tbody>
 </table>
-<p class='issue' data-number=14>The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.</p>
+
+
+## Network
 
 <table>
   <thead>
