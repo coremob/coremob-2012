@@ -11,8 +11,10 @@
                 {   name:       "Tobie Langel"
                 ,   company:    "Facebook"
                 ,   companyURL: "http://facebook.com/" }
-          ,     {   name:       "Joe Rabin"
-                ,   url:        "http://linguafranca.org" }
+          ,     {   name:       "Jo Rabin",
+                    company:    "linguafranca.org",
+                    companyURL: "http://linguafranca.org",
+                    note:       "from November 2012"}
           ,     {   name:       "Robin Berjon"
                 ,   url:        "http://berjon.com/"
                 ,   company:    "Robineko"
@@ -35,7 +37,8 @@
     </script>
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
     <style>
-    table {border-collapse: collapse; border: 1px solid #bec9d9; font-size: smaller}
+    body {}
+    table {border-collapse: collapse; border: 1px solid #bec9d9}
     td, th {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
    tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
     th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
@@ -49,7 +52,7 @@
     </style>
 
   </head>
-  <body style="max-width:45em">
+  <body >
     <section id='abstract'>
         The W3C Core Mobile Web Platform Community Group (Coremob) was established with the objective of helping to make the Web a compelling platform for developing modern mobile applications. The motivation for that is the widespread view that the Web does not represent a compelling platform for mobile applications today.
 
@@ -64,13 +67,9 @@
       Comments on this document are not only welcomed but are actively solicited and should be made on the [public-coremob@w3.org mailing list](http://lists.w3.org/Archives/Public/public-coremob/). The source code is available on [GitHub](https://github.com/coremob/coremob-2012).
     </section>
     
-Conformance
-===========
 
-This document does not express any conformance requirements. Conformance to this document would consist of conforming to the technology standards it identifies, however, some of the technology standards it identifies have not advanced to a sufficient state of maturity to be capable of having conformance requirements.
-
-Introduction
-============
+    Introduction
+    ============
       
 Quoting from its [charter](http://www.w3.org/community/coremob/charter/): 
 
@@ -80,7 +79,7 @@ Quoting from its [charter](http://www.w3.org/community/coremob/charter/):
 > 1. Compile related conformance test suites.
 > 1. Provide to W3C (and non-W3C) groups use cases, scenarios, and other input to drive successful mobile deployment.
 
-This document is the initial output of the Community Group. Its focus is items 1 and 3 from its charter above.
+This document is the initial output of the Community Group. Its focus is items 1 and 3 from the CG charter above.
 
 The following sections serve to contextualize the role of this document against the CG charter.
 
@@ -100,7 +99,7 @@ This document is the first in such a series of descriptions of subsets of Web pl
 
 The use cases chosen reflect a selection of popular applications that have been created using "native" techniques. Although this set of use cases is limited, and the functionality implied by them is (relatively speaking) simple, the set of functionalities is nonetheless described as being "aspirational" because it goes beyond the state of implementation by most current browsers, and indeed goes beyond the current state of specification of some of those features - see below [Aspirational nature of the document](#aspirational-nature-of-the-document) for a discussion of the aspirational aspect, as construed in this revision. 
 
-Having identified features of the Web platform that are required to fulfill the use cases it is then possible to identify a set of technology specifications (or note the absence of suitable specifications) that specify those features.
+Having identified features of the Web platform that are required to fulfill the use cases it is then possible to identify a set of technology specifications (or to note the absence of suitable specifications) that specify those features.
 
 Further, having identified a set of specifications, it is then possible to identify a set of tests (or note the absence of such tests) that can be used to assess conformance with the identified specifications and also to propose a test environment in which those tests can be carried out.
 
@@ -108,21 +107,21 @@ Further, having identified a set of specifications, it is then possible to ident
 
 This document, as mentioned above, sets out the initial limited set of use cases; it derives Web platform technology requirements from them and it identifies technology specifications, at various states of maturity, that fulfill those requirements. It does not identify tests or test suites that match those technology specifications, which will be part of subsequent work of the group.
 
-Since some standardization work is required to complete the set of technologies required for the various use cases it identifies, one of the purposes of the document is to point out that increased coordination between the groups that create standards would be beneficial in order to create a more coherent and pragmatically useful mobile Web application platform. 
+Since standardization work is required to complete the set of technologies required to fulfill the various use cases the document identifies, one of the purposes of the document is to point out that increased coordination between the groups that create standards would be beneficial in order to create a more coherent and pragmatically useful mobile Web application platform. 
 
-The intention of this document and subsequent editions, in regard of developers, is to solicit feedback on the use cases and on specific technology areas that are problematic, when used in a mobile context. Developers are especially encouraged to contribute to the work of the CG, since it is hoped that such participation will reduce future maintenance and development costs for them and will also provide a means by which developers' voices may be heard by other constituencies that need to hear them.
+The intention of this document and subsequent editions, in regard of developers, is to solicit feedback on the use cases and on specific technology areas that are problematic, when used in a mobile context. Developers are especially encouraged to contribute to the work of the CG, since it is hoped that such participation will reduce future maintenance and development costs for them and will also provide a means by which developers' voices may be heard by constituencies that need to hear them.
 
 ### Aspirational nature of the document
 
-It's worth re-iterating, at this point, that the group is not expressing the judgment that it is not possible to use the Web platform to build a wide variety of application that can be used in a mobile context. Indeed, there are applications that can be built on the Web platform that work well in a mobile delivery context. The group notes, though, that those applications are not usually specifically mobile in their use cases and tend to be similar in nature to applications that have desktop use cases as much as they have mobile use cases.
+To be clear, the CG is not expressing the judgment that it is not possible to use the Web platform to build a wide variety of application that can be used in a mobile context. Indeed, there are applications that can be built on the Web platform that work well in a mobile delivery context. The group notes, though, that those applications are not usually specifically mobile in their use cases and tend to be similar in nature to applications that have desktop use cases as much as they have mobile use cases.
 
-That view must, however, be expressed with the caveat that there are many "quality of implementation" issues that developers may encounter. For example, the frame rate achievable when developing mobile games may not be sufficient, in some cases, and as another example the synchronization of playing sounds may not be adequate.
+Further, the view that it is already practical to develop effective mobile Web applications is expressed with the caveat that there are many "quality of implementation" issues that developers may encounter. For example, the frame rate achievable when developing mobile games may not be sufficient, in some cases, and as another example the synchronization of playing sounds may not be adequate.
 
 ### Mobile Focus
 
-The key point, here, is that mobile devices often have capabilities (such as a camera) or circumstances of use (such as periods off line, or frequent periods with low bandwidth for data transfer) that make mobile both a more rewarding environment for creation of applications and a more difficult environment for such implementation too.
+Mobile devices often have capabilities (such as a camera) or circumstances of use (such as periods off line, or frequent periods with low bandwidth for data transfer) that make mobile both a more rewarding environment for creation of applications and a more difficult environment for such implementations too.
 
-With the rapid increase in uptake of use of mobile devices, both in developed markets and in less developed markets (often as the only means of Web access in those markets), the CG believes that closing the gap between what can be achieved using Web technology on mobile and what can be achieved using "native application implementations" needs to narrow, urgently.
+With the rapid increase in uptake of use of mobile devices, both in developed markets and in less developed markets (perhaps as the only means of Web access in those markets), the CG believes that closing the gap between what can be achieved using Web technology on mobile and what can be achieved using "native application implementations" needs to narrow, urgently.
 
 ### Other aspects of the CG's work
 
@@ -150,21 +149,20 @@ The document has the following structure:
         
         Discusses the specifications selected to implement "required technologies".
         
-        1.  Quality Of Implementation
+    5.  Missing Specifications
             
-            Discusses aspects of implementations of some of the selected technologies.
-            
-        2.  Missing Specifications
-            
-            Discusses technologies needed but not specified.
-            
+        Discusses technologies needed but not specified.
 
-    Use cases
-    =========
+    6.  Quality of Implementation
+            
+        Discusses aspects of implementation of some of the selected technologies
 
-    The basis of selection of the Use Cases is a survey [references] carried out which assessed the top 10 "Native apps" .... {discuss here where this all starts}
+Use cases
+=========
 
-    The following are {discuss what they are}
+    The basis of selection of the Use Cases is a survey **`need to provide reference`** carried out which assessed the top 10 "Native apps" ...**`discuss here where this all started. This really needs to be here, since the use cases presented here are quite limp and the following paragraph needs to be sustained`**
+
+    The following is a limited, indicative and idealized set of Use Cases intended to summarize those applications identified above.
     
     Take pictures in a remote area without network coverage
     -------------------------------------------------------
@@ -274,23 +272,26 @@ The document has the following structure:
     Specifications which meet the derived requirements
     ==================================================
     
-    This section lists existing specifications which address the requirements expressed in <a href="#use-cases" class="sectionRef"></a> and notes their current state of standardization (progress along W3C Rec Trac **todo** is noted using conventional abbreviations)
+    This section lists existing specifications which address the requirements expressed in <a href="#use-cases" class="sectionRef"></a> and <a href="#derived-requirements" class="sectionRef"></a> and and notes their current state of standardization (progress along W3C Rec Track is noted using conventional abbreviations)
 
     The document [Standards for Web Applications on Mobile: current state and roadmap](http://www.w3.org/Mobile/mobile-web-app-state/)  is regularly updated to reflect current status both of standardization and of implementation of many of the same standards.
 
-    **todo** think about how to make that reference.
 
-    **todo** the issues and notes need to be made more in keeping with the style of the tables
+    <p class="note">The CG has had frequent cause to discuss whether or not it needs to make reference to **the whole** of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p>
 
-    **todo** say something about the need to "on the whole" take the whole of a specification or ask the WG to subset it
+   **`Each of the entries below that don't have a specific requirement against them require justification`**
     
-    ## Markup
+   **`I can't figure out how to assess whether the link to the reference is correct and consistent with the Work status stated in this table`**
+    
+
+
+     ## Markup
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   <tbody>
-    <tr><th>HTML5 [[!HTML5]]<td class="cr">CR<td><a href="#req-interoperability" class="reqRef"></a>
+    <tr><th rowspan="4">General<th>HTML5 [[!HTML5]]<td class="cr">CR<td><a href="#req-interoperability" class="reqRef"></a>
     <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td><a href="#req-camera-access" class="reqRef"></a>, <a href="#req-microphone-access" class="reqRef"></a>
     <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]</td><td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
     <tr><th>CSS Device Adaptation [[!CSS-ADAPTATION]] (as specified through a `meta` viewport element)</td><td class="wd">WD<td><a href="#req-viewport" class="reqRef"></a>
@@ -300,30 +301,31 @@ The document has the following structure:
 ## Style
   <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   <tbody>
-    <tr><th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
-    <tr><th colspan="3">Processing
-    <tr><th rowspan="2">CSS Values [[!CSS3VAL]]<td class="cr" rowspan="2">CR<td>
-    <tr><td class="nb">(Issue 9) CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
+    <tr><th>General<th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
+    <tr><th rowspan="3">Processing
+    <th>CSS Values [[!CSS3VAL]]<td class="cr" >CR<td>(See Issue 9 below)
+    
     <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td>
     <tr><th>CSS Selectors Level 3 [[!SELECT]]<td class="rec">REC<td>
-    <tr><th colspan="3">Graphical
-    <tr><th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
+    <tr><th rowspan="3">Graphical
+    <th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
     <tr><th>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td>
     <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td>
-    <tr><th colspan="3">Layout
-    <tr><th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
+    <tr><th rowspan="2">Layout
+    <th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
     <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td>
-    <tr><th colspan="3">Typography
-    <tr><th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
+    <tr><th rowspan="3">Typography
+    <th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
     <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td>
-    <tr><th rowspan="2">CSS Text [[!CSS3TEXT]]<td class="wd" rowspan="2">WD<td>
-    <tr><td class="nb">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
-    <tr><th colspan="3">Animations and Transitions
-    <tr><th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
+    <tr><th>CSS Text [[!CSS3TEXT]]<td class="wd">WD<td>(See Issue 13 below)
+    <tr><th rowspan="2">Animations and Transitions
+    <th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
     <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td>
+      <tr><td class="nb" colspan="4">(Issue 9) Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
+    <tr><td class="nb" colspan="4">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
 
 </table>
 
@@ -331,14 +333,14 @@ The document has the following structure:
 
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   </tbody>
    <tbody>
-    <tr><th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext">N/A<td>
+    <tr><th>General<th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext">N/A<td>
       <a href="#req-interoperability" class="reqRef"></a>
-    <tr><th colspan="3">DOM
-    <tr><th>DOM4 API [[!DOM4]]<td class="wd">WD<td>
+    <tr><th rowspan="4">DOM
+        <th>DOM4 API [[!DOM4]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>
     <tr><th>Selectors API Level 1 [[!SELECTORS-API]]<td class="pr">PR<td>
       <a href="#req-interoperability" class="reqRef"></a>
@@ -346,8 +348,8 @@ The document has the following structure:
     <tr><th>CSSOM View [[!CSSOM-VIEW]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-viewport" class="reqRef"></a>
-    <tr><th colspan="3">Storage
-    <tr><th>Web Storage API [[!WEBSTORAGE]]<td class="cr">CR<td>
+    <tr><th rowspan="4">Storage
+        <th>Web Storage API [[!WEBSTORAGE]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>
     <tr><th>Indexed Database API [[!INDEXEDDB]]<td class="wd">WD<td>
       <a href="#req-file-storage" class="reqRef"></a>,
@@ -362,8 +364,8 @@ The document has the following structure:
       <a href="#req-offline" class="reqRef"></a>,
       <a href="#req-file-storage" class="reqRef"></a>,
       <a href="#req-data-storage" class="reqRef"></a>
-    <tr><th colspan="3">Networking
-    <tr><th>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd">WD<td>
+    <tr><th rowspan="3">Networking
+        <th>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-file-upload" class="reqRef"></a>,
     <tr><th>Web Messaging API [[!POSTMSG]]<td class="cr">CR<td>
@@ -372,13 +374,13 @@ The document has the following structure:
     <tr><th>Web Workers API [[!WEBWORKERS]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-file-upload" class="reqRef"></a>,
-    <tr><th colspan="3">Sensors
-    <tr><th>Geolocation API [[!GEOLOCATION-API]]<td class="pr">PR<td>
+    <tr><th rowspan="2">Sensors
+        <th>Geolocation API [[!GEOLOCATION-API]]<td class="pr">PR<td>
       <a href="#req-geolocation" class="reqRef"></a>
     <tr><th>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td class="wd">WD<td>
       <a href="#req-position" class="reqRef"></a>
-    <tr><th colspan="3">Multimedia
-    <tr><th>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td>
+    <tr><th rowspan="2">Multimedia
+        <th>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td>
       <a href="#req-pic-manipulation" class="reqRef"></a>,
       <a href="#req-framerate" class="reqRef"></a>
     <tr><th>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td class="wd">WD<td>
@@ -391,32 +393,27 @@ The document has the following structure:
 
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   <tbody>
-    <tr><th>HTTP 1.1 [[!HTTP11]]<td class="ext">N/A<td>
+    <tr><th rowspan="7">General
+      <th>HTTP 1.1 [[!HTTP11]]<td class="ext">N/A<td>
     <tr><th>Cross-Origin Resource Sharing [[!CORS]]<td class="ext">N/A<td>
     <tr><th>The `data:` URI scheme [[!RFC2397]]<td class="ext">N/A<td>
     <tr><th>The `mailto:` URI scheme [[!RFC6068]]<td class="ext">N/A<td>
     <tr><th>The `tel:` URI scheme [[!RFC3966]]<td class="ext">N/A<td>
     <tr><th>The `sms:` URI scheme [[!RFC5724]]<td class="ext">N/A<td>
-    <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEME]]<td class="ext">N/A<td>
     <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEMES]]<td class="ext">N/A<td>
   </tbody>
 </table>
 
-    Quality of Implementations Requirements
-    =======================================
-    
-    These are requirements that cannot be expressed in terms of conformance to a specification.
-    
-    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
-    
-    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
-    
     Requirements unmet by current specification work
     ================================================
     
+**`This section needs to list the requirements by number`**
+
+**`Plus it would be useful to have a summary at the end tabulating where requirements are and are not met`**
+
     Application Configuration
     -------------------------
     
@@ -441,5 +438,23 @@ The document has the following structure:
     -------------------------------
     
     <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
+
+    Quality of Implementation Requirements
+    ======================================
+    
+    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
+
+    The group's work to date has yielded two particular points of note.
+    
+    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
+    
+    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
+    
+    Conformance
+    ===========
+
+This document does not express any conformance requirements. Conformance to this document would consist of conforming to the technology standards it identifies, however, some of the technology standards it identifies have not advanced to a sufficient state of maturity to be capable of having conformance requirements.
+
+
   </body>
 </html>
