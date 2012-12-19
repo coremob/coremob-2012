@@ -33,8 +33,8 @@
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
     <style>
     table {border-collapse: collapse; border: 1px solid #bec9d9; font-size: smaller}
-    td, th, caption {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
-    caption, tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
+    td, th {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
+   tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
     th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
     tbody tr th {text-align: left;}
     td.nb { font-size: smaller;}
@@ -240,47 +240,45 @@ The document has the following structure:
     ## Markup
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
+    <tr><th>Specification<th>Status<th>Requirements Addressed
   </thead>
-  <caption>Markup</caption>
   <tbody>
-    <tr><th rowspan="2">HTML5 [[!HTML5]]<td class="cr" rowspan="2">CR<td>**todo**<td>1, 2, Note 1
-    <tr><td class="nb" colspan="2">Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?
-    <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td>**todo**<td>
-    <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]<td class="rec">REC<td>**todo**<td>
-    <tr><th rowspan="2">CSS Device Adaptation [[!CSS-ADAPTATION]]<td rowspan="2" class="ed">ED<td>**todo**<td>Note 2
-    <tr><td colspan="2" class="nb">as specified through a `meta` viewport element
+    <tr><th rowspan="2">HTML5 [[!HTML5]]<td class="cr" rowspan="2">CR<td>**todo**
+    <tr><td class="nb" colspan="2">AppcCache does not at present work, in HTML5 and may be at risk, anyway. See below under **todo*
+    <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td>**todo**
+    <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]<td class="rec">REC<td>**todo**
+    <tr><th rowspan="2">CSS Device Adaptation [[!CSS-ADAPTATION]]<td rowspan="2" class="ed">ED<td>**todo**
+    <tr><td class="nb">as specified through a `meta` viewport element
   </tbody>
   <table>
 
 ## Style
   <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
+    <tr><th>Specification<th>Status<th>Requirements Addressed
   </thead>
-  <caption>Style</caption>
   <tbody>
-    <tr><th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><td>
-    <tr><th colspan="4">Processing
-    <tr><th rowspan="2">CSS Values [[!CSS3VAL]]<td class="cr" rowspan="2">CR<td><td>9
-    <tr><td class="nb" colspan="2">(Issue 9) CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
-    <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td><td>
-    <tr><th>CSS Selectors Level 3 [[!SELECTORS]]<td class="rec">REC<td><td>
-    <tr><th colspan="4">Graphical
-    <tr><th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td><td>
-    <tr><th>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td><td>
-    <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td><td>10
-    <tr><th colspan="4">Layout
-    <tr><th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td><td>
-    <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td><td>
-    <tr><th colspan="4">Typography
-    <tr><th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td><td>
-    <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td><td>
-    <tr><th rowspan="2">CSS Text [[!CSS3TEXT]]<td class="wd" rowspan="2">WD<td><td>13
-    <tr><td class="nb" colspan="2">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
-    <tr><th colspan="4">Animations and Transitions
-    <tr><th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td><td>
-    <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td><td>
+    <tr><th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td>
+    <tr><th colspan="3">Processing
+    <tr><th rowspan="2">CSS Values [[!CSS3VAL]]<td class="cr" rowspan="2">CR<td>
+    <tr><td class="nb">(Issue 9) CSS Values is a WD. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
+    <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td>
+    <tr><th>CSS Selectors Level 3 [[!SELECTORS]]<td class="rec">REC<td>
+    <tr><th colspan="3">Graphical
+    <tr><th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
+    <tr><th>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td>
+    <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td>
+    <tr><th colspan="3">Layout
+    <tr><th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
+    <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td>
+    <tr><th colspan="3">Typography
+    <tr><th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
+    <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td>
+    <tr><th rowspan="2">CSS Text [[!CSS3TEXT]]<td class="wd" rowspan="2">WD<td>
+    <tr><td class="nb">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
+    <tr><th colspan="3">Animations and Transitions
+    <tr><th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
+    <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td>
 
 </table>
 
@@ -288,33 +286,32 @@ The document has the following structure:
 
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
+    <tr><th>Specification<th>Status<th>Requirements Addressed
   </thead>
   </tbody>
-  <caption>Scripting</caption>
-  <tbody>
-    <tr><th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext"><td><td>
-    <tr><th colspan="4">DOM
-    <tr><th>DOM4 API [[!DOM4]]<td class="wd">WD<td><td>
-    <tr><th>Selectors API level 2 [[!SELECTORS-API2]]<td class="wd">WD<td><td>
-    <tr><th>Touch Events version 1 [[!TOUCH-EVENTS]]<td class="cr">CR<td><td>
-    <tr><th>CSSOM View [[!CSSOM-VIEW]]<td class="wd">WD<td><td>
-    <tr><th colspan="4">Storage
-    <tr><th>Web Storage API [[!WEBSTORAGE]]<td class="wd">WD<td><td>
-    <tr><th>Indexed Database API [[!INDEXEDDB]]<td class="wd">WD<td><td>
-    <tr><th>File API [[!FILE-API]]<td class="wd">WD<td><td>
-    <tr><th>Quota Management API [[!QUOTA-API]]<td class="wd">WD<td><td>
-    <tr><th colspan="4">Networking
-    <tr><th rowspan="2">XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd" rowspan="2">WD<td><td>14
-    <tr><td colspan="2" class="nb">(Issue 14) The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.
-    <tr><th>Web Messaging API [[!POSTMSG]]<td class="ed">ED<td><td>
-    <tr><th>Web Workers API [[!WEBWORKERS]]<td class="wd">WD<td><td>
-    <tr><th colspan="4">Sensors
-    <tr><th>Geolocation API [[!GEOLOCATION-API]]<td class="wd">WD<td><td>
-    <tr><th>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td class="wd">WD<td><td>
-    <tr><th colspan="4">Multimedia
-    <tr><th>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td><td>
-    <tr><th>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td class="wd">WD<td><td>
+   <tbody>
+    <tr><th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext"><td>
+    <tr><th colspan="3">DOM
+    <tr><th>DOM4 API [[!DOM4]]<td class="wd">WD<td>
+    <tr><th>Selectors API level 2 [[!SELECTORS-API2]]<td class="wd">WD<td>
+    <tr><th>Touch Events version 1 [[!TOUCH-EVENTS]]<td class="cr">CR<td>
+    <tr><th>CSSOM View [[!CSSOM-VIEW]]<td class="wd">WD<td>
+    <tr><th colspan="3">Storage
+    <tr><th>Web Storage API [[!WEBSTORAGE]]<td class="wd">WD<td>
+    <tr><th>Indexed Database API [[!INDEXEDDB]]<td class="wd">WD<td>
+    <tr><th>File API [[!FILE-API]]<td class="wd">WD<td>
+    <tr><th>Quota Management API [[!QUOTA-API]]<td class="wd">WD<td>
+    <tr><th colspan="3">Networking
+    <tr><th rowspan="2">XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd" rowspan="2">WD<td>
+    <tr><td class="nb">(Issue 14) The Editor folded level 1 and 2 in the same spec recently, but this isn't reflected in /TR yet.
+    <tr><th>Web Messaging API [[!POSTMSG]]<td class="ed">ED<td>
+    <tr><th>Web Workers API [[!WEBWORKERS]]<td class="wd">WD<td>
+    <tr><th colspan="3">Sensors
+    <tr><th>Geolocation API [[!GEOLOCATION-API]]<td class="wd">WD<td>
+    <tr><th>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td class="wd">WD<td>
+    <tr><th colspan="3">Multimedia
+    <tr><th>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td>
+    <tr><th>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td class="wd">WD<td>
 
   </tbody>
 </table>
@@ -324,17 +321,16 @@ The document has the following structure:
 
 <table>
   <thead>
-    <tr><th>Specification<th>Status<th>Requirements Addressed<th>Issues
+    <tr><th>Specification<th>Status<th>Requirements Addressed
   </thead>
-  <caption>Network</caption>
   <tbody>
-    <tr><th>HTTP 1.1 [[!HTTP11]]<td class="ext"><td><td>
-    <tr><th>Cross-Origin Resource Sharing [[!CORS]]<td class="ext"><td><td>
-    <tr><th>The `data:` URI scheme [[!RFC2397]]<td class="ext"><td><td>
-    <tr><th>The `mailto:` URI scheme [[!RFC6068]]<td class="ext"><td><td>
-    <tr><th>The `tel:` URI scheme [[!RFC3966]]<td class="ext"><td><td>
-    <tr><th>The `sms:` URI scheme [[!RFC5724]]<td class="ext"><td><td>
-    <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEME]]<td class="ext"><td><td>
+    <tr><th>HTTP 1.1 [[!HTTP11]]<td class="ext"><td>
+    <tr><th>Cross-Origin Resource Sharing [[!CORS]]<td class="ext"><td>
+    <tr><th>The `data:` URI scheme [[!RFC2397]]<td class="ext"><td>
+    <tr><th>The `mailto:` URI scheme [[!RFC6068]]<td class="ext"><td>
+    <tr><th>The `tel:` URI scheme [[!RFC3966]]<td class="ext"><td>
+    <tr><th>The `sms:` URI scheme [[!RFC5724]]<td class="ext"><td>
+    <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEME]]<td class="ext"><td>
   </tbody>
 </table>
 
