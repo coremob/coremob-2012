@@ -226,7 +226,8 @@ Use cases
     <a href="#req-video" class="reqRef"></a>,
     <a href="#req-audio" class="reqRef"></a>,
     <a href="#req-rich-fonts" class="reqRef"></a>,
-    <a href="#req-history" class="reqRef"></a>.
+    <a href="#req-history" class="reqRef"></a>,
+    <a href="#req-url-schemes" class="reqRef"></a>.
     
     View a regular website
     ----------------------
@@ -236,6 +237,17 @@ Use cases
     Derived requirements:
     <a href="#req-interoperability" class="reqRef"></a>,
     <a href="#req-mobile-specific" class="reqRef"></a>.
+    
+    Browse a responsive website
+    ---------------------------
+    
+    John is en route for his dentist appointment. He's late, forget to write down the dentist's phone number, and has very poor network connection. Thankfully, the dentist has a responsive website which displays very quickly on John's mobile device. He's able to quickly find the dentist's phone number and call him.
+    
+    Derived requirements:
+    <a href="#req-interoperability" class="reqRef"></a>,
+    <a href="#req-mobile-specific" class="reqRef"></a>,
+    <a href="#req-responsive" class="reqRef"></a>,
+    <a href="#req-url-schemes" class="reqRef"></a>.
     
     Bookmarking a Web application
     -----------------------------
@@ -261,6 +273,8 @@ Use cases
     <p id="req-app-feel" class=req>It MUST be possible for Web application user interfaces to transition smoothly from one state to another.</p>
 
     <p id="req-mobile-specific" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices.</p>
+    
+    <p id="req-responsive" class=req>It MUST be possible to request for the User Agent to download display different content depending on User Agent properties such as screen size, pixel density, etc.</p>
     
     <p id="req-video" class=req>The User Agent MUST support video playback.</p>
     
@@ -295,6 +309,8 @@ Use cases
     <p id="req-audio-playback" class=req>Multiple sound files MUST be able to play simultaneously with minimal latency.</p>
     
     <p id="req-server-sent-events" class=req>A server MUST be able to notify its clients.</p>
+    
+    <p id="req-url-schemes" class=req>`mailto:`, `tel:`, `sms:` and `mmsto:` URL schemes SHOULD allow the user to respectively send an email, make a phone call, send an SMS or send an MMS using the appropriate application to do so.</p>
     
     Specifications which meet the derived requirements
     ==================================================
