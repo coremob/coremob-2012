@@ -223,7 +223,7 @@ Use cases
     <a href="#req-offline" class="reqRef"></a>,
     <a href="#req-file-storage" class="reqRef"></a>,
     <a href="#req-data-storage" class="reqRef"></a>,
-    <a href="#req-video" class="reqRef"></a>,
+    <a href="#req-video-playback" class="reqRef"></a>,
     <a href="#req-audio-playback" class="reqRef"></a>,
     <a href="#req-rich-fonts" class="reqRef"></a>,
     <a href="#req-history" class="reqRef"></a>,
@@ -262,25 +262,43 @@ Use cases
     
     The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef"></a>.
     
+    General
+    -------
+    
     <p id="req-interoperability" class=req>A User Agent MUST support technology commonly available on desktop browsers, so that websites and applications designed for desktop are still usable on mobile.</p>
     
+    <p id="req-mobile-specific" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices.</p>
+    
+    <p id="req-responsive" class=req>It MUST be possible to request for the User Agent to download and display different content depending on device or User Agent properties such as screen size, pixel density, etc.</p>
+    
+    <p id="req-rich-fonts" class=req>The User Agent MUST support using downloadable fonts.</p>
+    
     <p id="req-meta-data" class=req>An author MUST be able to provide the User Agent with meta-data a such as the application's name, icon, etc.</p>
+
+    App-specific
+    ------------
     
     <p id="req-offline" class=req>It MUST be possible to make an application available offline.</p>
+    
+    <p id="req-history" class=req>The User Agent MUST allow the application developer to define URLs for chosen resources (for example for bookmarking or sharing) and to manipulate session history for single page applications.</p>
     
     <p id="req-app-look" class=req>It MUST be possible for Web application user interfaces to occupy all the screen space yet adapt to different screen sizes without leaving unused space or overflowing.</p>
     
     <p id="req-app-feel" class=req>It MUST be possible for Web application user interfaces to transition smoothly from one state to another.</p>
+    
+    <p id="req-orientation-lock" class=req>A Web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
+    
+    <p id="req-fullscreen" class=req>It MUST be possible for an application to signal to the User Agent that it wants to operate fullscreen and not inside of the browser's chrome.</p>
+    
+    Storage
+    -------
+    
+    <p id="req-file-storage" class=req>It MUST be possible to store files locally and retrieve them without requiring further permission from the user.</p>
+    
+    <p id="req-data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
 
-    <p id="req-mobile-specific" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices.</p>
-    
-    <p id="req-responsive" class=req>It MUST be possible to request for the User Agent to download display different content depending on User Agent properties such as screen size, pixel density, etc.</p>
-    
-    <p id="req-video" class=req>The User Agent MUST support video playback.</p>
-    
-    <p id="req-rich-fonts" class=req>The User Agent MUST support using downloadable fonts.</p>
-    
-    <p id="req-history" class=req>The User Agent MUST allow the application developer to provide URLs for chosen resources (for example for bookmarking or sharing) and to manipulate session history for single page applications.</p>
+    Multimedia
+    ----------
     
     <p id="req-camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
     
@@ -288,25 +306,25 @@ Use cases
     
     <p id="req-pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST NOT block the UI thread.</p>
     
-    <p id="req-file-storage" class=req>It MUST be possible to store files locally and retrieve them without requiring further permission from the user.</p>
-    
-    <p id="req-data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
-    
-    <p id="req-file-upload" class=req>It MUST be possible to asynchronously upload files to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
-    
-    <p id="req-orientation-lock" class=req>A Web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
-    
-    <p id="req-fullscreen" class=req>It MUST be possible for an application to signal to the User Agent that it wants to operate fullscreen and not inside of the browser's chrome.</p>
-    
-    <p id="req-geolocation" class=req>It MUST be possible to obtain the device's current geographic coordinates provided the user consents to sharing those.</p>
-    
-    <p id="req-position" class=req>It MUST be possible to register to receive updates when the position of the device changes.</p>
-    
     <p id="req-framerate" class=req>It MUST be possible to draw multiple animated sprites at 30FPS in fullscreen mode.</p>
     
     <p id="req-audio-playback" class=req>Multiple sound files MUST be able to play simultaneously with minimal latency.</p>
     
-    <p id="req-server-sent-events" class=req>A server MUST be able to notify its clients.</p>
+    <p id="req-video-playback" class=req>The User Agent MUST support video playback.</p>
+    
+    Sensors
+    -------
+    
+    <p id="req-position" class=req>It MUST be possible to register to receive updates when the position of the device changes.</p>
+    
+    <p id="req-geolocation" class=req>It MUST be possible to obtain the device's current geographic coordinates provided the user consents to sharing those.</p>
+    
+    Networking
+    ----------
+    
+    <p id="req-file-upload" class=req>It MUST be possible to asynchronously upload files to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
+    
+    <p id="req-server-sent-events" class=req>A remote server MUST be able to notify connected User Agents.</p>
     
     <p id="req-url-schemes" class=req>`mailto:`, `tel:`, `sms:` and `mmsto:` URL schemes SHOULD allow the user to respectively send an email, make a phone call, send an SMS or send an MMS using the appropriate application to do so.</p>
     
