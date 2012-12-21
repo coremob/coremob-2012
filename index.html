@@ -337,142 +337,146 @@ Use cases
 
     <p class="note">The CG has had frequent cause to discuss whether or not it needs to make reference to **the whole** of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p>
 
-   **`Each of the entries below that don't have a specific requirement against them require justification`**
+    Markup
+    ------
 
-     ## Markup
 <table>
   <thead>
     <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   <tbody>
-    <tr><th rowspan="4">General<th>HTML5 [[!HTML5]]<td class="cr">CR<td>
+    <tr><th rowspan="4">General<td>HTML5 [[!HTML5]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-offline" class=reqRef></a>,
       <a href="#req-history" class=reqRef></a>,
       <a href="#req-audio-playback" class=reqRef></a>,
       <a href="#req-video-playback" class=reqRef></a>
-    <tr><th>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td>
+    <tr><td>HTML Media Capture [[!HTMLMEDIACAPTURE]]<td class="wd">WD<td>
       <a href="#req-camera-access" class="reqRef"></a>,
       <a href="#req-microphone-access" class="reqRef"></a>
-    <tr><th>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]</td><td class="rec">REC<td>
+    <tr><td>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[!SVG11]]</td><td class="rec">REC<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-responsive" class=reqRef></a>
-    <tr><th>CSS Device Adaptation [[!CSS-ADAPTATION]] (as specified through a `meta` viewport element)</td><td class="wd">WD<td>
+    <tr><td>CSS Device Adaptation [[!CSS-ADAPTATION]] (as specified through a `meta` viewport element)</td><td class="wd">WD<td>
       <a href="#req-mobile-specific" class="reqRef"></a>,
       <a href="#req-responsive" class=reqRef></a>.
   </tbody>
-  <table>
+<table>
 
-## Style
-  <table>
+    Style
+    -----
+
+<table>
   <thead>
     <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   <tbody>
-    <tr><th>General<th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
+    <tr><th>General<td>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
     <tr><th rowspan="3">Processing
-    <th>CSS Values [[!CSS3VAL]] <sup id="fn1-ref">[1](#fn1)</sup><td class="cr" >CR<td>
+    <td>CSS Values [[!CSS3VAL]] <sup id="fn1-ref">[1](#fn1)</sup><td class="cr" >CR<td>
       <a href="#req-interoperability" class="reqRef"></a>
-    <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td>
+    <tr><td>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-mobile-specific" class=reqRef></a>,
       <a href="#req-responsive" class=reqRef></a>
-    <tr><th>CSS Selectors Level 3 [[!SELECT]]<td class="rec">REC<td>
+    <tr><td>CSS Selectors Level 3 [[!SELECT]]<td class="rec">REC<td>
       <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="3">Graphical
-    <th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
+    <td>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
       <a href="#req-interoperability" class=reqRef></a>
-    <tr><th>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td>
+    <tr><td>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td>
       <a href="#req-interoperability" class=reqRef></a>
-    <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td>
+    <tr><td>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td>
       <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="2">Layout
-    <th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
+    <td>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
       <a href="#req-app-look" class=reqRef></a>
-    <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td>
+    <tr><td>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td>
       <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="3">Typography
-    <th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
+    <td>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
       <a href="#req-responsive" class=reqRef></a>,
       <a href="#req-rich-fonts" class=reqRef></a>
-    <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td>
+    <tr><td><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td>
       <a href="#req-responsive" class=reqRef></a>,
       <a href="#req-rich-fonts" class=reqRef></a>
-    <tr><th>CSS Text [[!CSS3TEXT]] <sup id="fn2-ref">[2](#fn2)</sup><td class="wd">WD<td>
+    <tr><td>CSS Text [[!CSS3TEXT]] <sup id="fn2-ref">[2](#fn2)</sup><td class="wd">WD<td>
       <a href="#req-rich-fonts" class=reqRef></a>
     <tr><th rowspan="2">Animations and Transitions
-    <th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
+    <td>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
       <a href="#req-interoperability" class=reqRef></a>
-    <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td>
+    <tr><td>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td>
       <a href="#req-app-feel" class=reqRef></a>
+  </tbody>
 </table>
 
 <p><small id="fn1">1. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`). [↩](#fn1-ref)</small></p>
 
 <p><small id="fn2">2. The requirements are only for a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1. [↩](#fn2-ref)</small></p>
 
-## Scripting
-
+    Scripting
+    ---------
+    
 <table>
   <thead>
     <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
   </thead>
   </tbody>
    <tbody>
-    <tr><th>General<th>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext">N/A<td>
+    <tr><th>General<td>ECMAScript, Edition 5.1 [[!ECMA-262-51]]<td class="ext">N/A<td>
       <a href="#req-interoperability" class="reqRef"></a>
     <tr><th rowspan="4">DOM
-        <th>DOM4 API [[!DOM4]]<td class="wd">WD<td>
+        <td>DOM4 API [[!DOM4]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>
-    <tr><th>Selectors API Level 1 [[!SELECTORS-API]]<td class="pr">PR<td>
+    <tr><td>Selectors API Level 1 [[!SELECTORS-API]]<td class="pr">PR<td>
       <a href="#req-interoperability" class="reqRef"></a>
-    <tr><th>Touch Events version 1 [[!TOUCH-EVENTS]]<td class="cr">CR<td>
+    <tr><td>Touch Events version 1 [[!TOUCH-EVENTS]]<td class="cr">CR<td>
       <a href="#req-mobile-specific" class="reqRef"></a>
-    <tr><th>CSSOM View [[!CSSOM-VIEW]]<td class="wd">WD<td>
+    <tr><td>CSSOM View [[!CSSOM-VIEW]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-mobile-specific" class="reqRef"></a>
     <tr><th rowspan="4">Storage
-        <th>Web Storage API [[!WEBSTORAGE]]<td class="cr">CR<td>
+        <td>Web Storage API [[!WEBSTORAGE]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>
-    <tr><th>Indexed Database API [[!INDEXEDDB]]<td class="wd">WD<td>
+    <tr><td>Indexed Database API [[!INDEXEDDB]]<td class="wd">WD<td>
       <a href="#req-file-storage" class="reqRef"></a>,
       <a href="#req-data-storage" class="reqRef"></a>
-    <tr><th>File API [[!FILE-API]]<td class="wd">WD<td>
+    <tr><td>File API [[!FILE-API]]<td class="wd">WD<td>
       <a href="#req-camera-access" class="reqRef"></a>,
       <a href="#req-microphone-access" class="reqRef"></a>,
       <a href="#req-pic-manipulation" class="reqRef"></a>,
       <a href="#req-file-storage" class="reqRef"></a>,
       <a href="#req-file-upload" class="reqRef"></a>
-    <tr><th>Quota Management API [[!QUOTA-API]]<td class="wd">WD<td>
+    <tr><td>Quota Management API [[!QUOTA-API]]<td class="wd">WD<td>
       <a href="#req-offline" class="reqRef"></a>,
       <a href="#req-file-storage" class="reqRef"></a>,
       <a href="#req-data-storage" class="reqRef"></a>
     <tr><th rowspan="3">Networking
-        <th>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd">WD<td>
+        <td>XMLHttpRequest API [[!XMLHTTPREQUEST]]<td class="wd">WD<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-file-upload" class="reqRef"></a>
-    <tr><th>Web Messaging API [[!POSTMSG]]<td class="cr">CR<td>
+    <tr><td>Web Messaging API [[!POSTMSG]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>
       <a href="#req-file-upload" class="reqRef"></a>
-    <tr><th>Web Workers API [[!WEBWORKERS]]<td class="cr">CR<td>
+    <tr><td>Web Workers API [[!WEBWORKERS]]<td class="cr">CR<td>
       <a href="#req-interoperability" class="reqRef"></a>,
       <a href="#req-file-upload" class="reqRef"></a>
     <tr><th rowspan="2">Sensors
-        <th>Geolocation API [[!GEOLOCATION-API]]<td class="pr">PR<td>
+        <td>Geolocation API [[!GEOLOCATION-API]]<td class="pr">PR<td>
       <a href="#req-geolocation" class="reqRef"></a>
-    <tr><th>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td class="wd">WD<td>
+    <tr><td>DeviceOrientation Event [[!DEVICE-ORIENTATION]]<td class="wd">WD<td>
       <a href="#req-position" class="reqRef"></a>
     <tr><th rowspan="2">Multimedia
-        <th>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td>
+        <td>Canvas2D API [[!CANVAS-2D]]<td class="cr">CR<td>
       <a href="#req-pic-manipulation" class="reqRef"></a>,
       <a href="#req-framerate" class="reqRef"></a>
-    <tr><th>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td class="wd">WD<td>
+    <tr><td>Timing control for script-based animations API [[!ANIMATION-TIMING]]<td class="wd">WD<td>
       <a href="#req-framerate" class="reqRef"></a>
   </tbody>
 </table>
 
-
-## Network
+    Network
+    -------
 
 <table>
   <thead>
@@ -480,13 +484,13 @@ Use cases
   </thead>
   <tbody>
     <tr><th rowspan="7">General
-      <th>HTTP 1.1 [[!HTTP11]]<td class="ext">N/A<td><a href="#req-interoperability" class=reqRef></a>
-    <tr><th>Cross-Origin Resource Sharing [[!CORS]]<td class="ext">N/A<td><a href="#req-file-upload" class=reqRef></a>
-    <tr><th>The `data:` URI scheme [[!RFC2397]]<td class="ext">N/A<td>  <a href="#req-interoperability" class=reqRef></a>
-    <tr><th>The `mailto:` URI scheme [[!RFC6068]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
-    <tr><th>The `tel:` URI scheme [[!RFC3966]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
-    <tr><th>The `sms:` URI scheme [[!RFC5724]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
-    <tr><th>The `mmsto:` URI scheme [[!OMA-URI-SCHEMES]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+      <td>HTTP 1.1 [[!HTTP11]]<td class="ext">N/A<td><a href="#req-interoperability" class=reqRef></a>
+    <tr><td>Cross-Origin Resource Sharing [[!CORS]]<td class="ext">N/A<td><a href="#req-file-upload" class=reqRef></a>
+    <tr><td>The `data:` URI scheme [[!RFC2397]]<td class="ext">N/A<td>  <a href="#req-interoperability" class=reqRef></a>
+    <tr><td>The `mailto:` URI scheme [[!RFC6068]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `tel:` URI scheme [[!RFC3966]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `sms:` URI scheme [[!RFC5724]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `mmsto:` URI scheme [[!OMA-URI-SCHEMES]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
   </tbody>
 </table>
 
