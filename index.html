@@ -337,7 +337,8 @@ Use cases
     The document [Standards for Web Applications on Mobile: current state and roadmap](http://www.w3.org/Mobile/mobile-web-app-state/)  is regularly updated to reflect current status both of standardization and of implementation of many of the same standards.
 
     <p class="note">The CG has had frequent cause to discuss whether or not it needs to make reference to **the whole** of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p>
-
+    
+    
     Markup
     ------
 
@@ -494,14 +495,35 @@ Use cases
     <tr><td>The `mmsto:` URI scheme [[OMA-URI-SCHEMES]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
   </tbody>
 </table>
-
-    Requirements unmet by current specification work
-    ================================================
     
-**`This section needs to list the requirements by number`**
-
-**`Plus it would be useful to have a summary at the end tabulating where requirements are and are not met`**
-
+    
+    Quality of Implementation Requirements
+    ======================================
+    
+    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
+    
+    The group's work to date has yielded two particular points of note.
+    
+    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
+    
+    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
+    
+    perf requires vertical integration
+    
+    
+    Requirements not or only partially addressed by existing specifications
+    =======================================================================
+    
+    Partially addressed requirements
+    --------------------------------
+    
+    Unaddressed requirements
+    ------------------------
+    
+    <a href="#req-meta-data" class="reqRef"></a>,
+    <a href="#req-fast-scroll" class=reqRef></a>,
+    <a href="#req-orientation-lock" class=reqRef></a>,
+    <a href="#req-fullscreen" class=reqRef></a>.
     Application Configuration
     -------------------------
     
@@ -526,17 +548,8 @@ Use cases
     -------------------------------
     
     <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
-
-    Quality of Implementation Requirements
-    ======================================
     
-    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
-
-    The group's work to date has yielded two particular points of note.
     
-    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
-    
-    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
     
     Conformance
     ===========
