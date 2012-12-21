@@ -499,20 +499,32 @@ The document has the following structure:
   </tbody>
 </table>
     
-    
     Quality of Implementation Requirements
     ======================================
     
     The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
     
-    The group's work to date has yielded two particular points of note.
+    The group's work to date has yielded the following particular points of note:
     
-    <p class='note'>Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.</p>
+    QoI of the `audio` element
+    --------------------------
     
-    <p class='note'>Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.</p>
+    Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.
     
-    perf requires vertical integration
+    Performance of the `canvas` element
+    -----------------------------------
     
+    Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.
+    
+    Performance of CSS transitions and animations
+    ---------------------------------------------
+    
+    Smooth transitions and animations are key to delivering great user experiences. Implementations should aim to render these at 60fps.
+    
+    Dedicated Form Controls
+    -----------------------
+    
+    Implementors are urged to implement dedicated form controls where appropriate.
     
     Requirements not or only partially addressed by existing specifications
     =======================================================================
@@ -527,6 +539,7 @@ The document has the following structure:
     <a href="#req-fast-scroll" class=reqRef></a>,
     <a href="#req-orientation-lock" class=reqRef></a>,
     <a href="#req-fullscreen" class=reqRef></a>.
+    
     Application Configuration
     -------------------------
     
