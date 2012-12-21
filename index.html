@@ -271,7 +271,7 @@ Use cases
     
     <p id="req-responsive" class=req>It MUST be possible to request for the User Agent to download and display different content depending on device or User Agent properties such as screen size, pixel density, etc.</p>
     
-    <p id="req-rich-fonts" class=req>The User Agent MUST support using downloadable fonts.</p>
+    <p id="req-rich-fonts" class=req>The User Agent MUST support rich typography including using downloadable fonts.</p>
     
     <p id="req-meta-data" class=req>An author MUST be able to provide the User Agent with meta-data a such as the application's name, icon, etc.</p>
 
@@ -335,7 +335,6 @@ Use cases
 
     The document [Standards for Web Applications on Mobile: current state and roadmap](http://www.w3.org/Mobile/mobile-web-app-state/)  is regularly updated to reflect current status both of standardization and of implementation of many of the same standards.
 
-
     <p class="note">The CG has had frequent cause to discuss whether or not it needs to make reference to **the whole** of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p>
 
    **`Each of the entries below that don't have a specific requirement against them require justification`**
@@ -372,28 +371,45 @@ Use cases
   <tbody>
     <tr><th>General<th>CSS 2.1 [[!CSS21]]<td class="rec">REC<td><a href="#req-interoperability" class="reqRef"></a>
     <tr><th rowspan="3">Processing
-    <th>CSS Values [[!CSS3VAL]]<td class="cr" >CR<td>(See Issue 9 below)
-    
+    <th>CSS Values [[!CSS3VAL]] <sup id="fn1-ref">[1](#fn1)</sup><td class="cr" >CR<td>
+      <a href="#req-interoperability" class="reqRef"></a>
     <tr><th>CSS Media Queries [[!CSS3-MEDIAQUERIES]]<td class="rec">REC<td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-mobile-specific" class=reqRef></a>,
+      <a href="#req-responsive" class=reqRef></a>
     <tr><th>CSS Selectors Level 3 [[!SELECT]]<td class="rec">REC<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="3">Graphical
     <th>CSS Backgrounds and Borders [[!CSS3-BG]]<td class="cr">CR<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th>CSS Color [[!CSS3COLOR]]<td class="rec">REC<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th>CSS Image Values and Replaced Content [[!CSS3-IMAGES]]<td class="cr">CR<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="2">Layout
     <th>CSS Flexible Box Layout [[!FLEXBOX]]<td class="cr">CR<td>
+      <a href="#req-app-look" class=reqRef></a>
     <tr><th>CSS Transforms [[!CSS3-TRANSFORMS]]<td class="wd">WD<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th rowspan="3">Typography
     <th>CSS Fonts [[!CSS3-FONTS]]<td class="wd">WD<td>
+      <a href="#req-responsive" class=reqRef></a>,
+      <a href="#req-rich-fonts" class=reqRef></a>
     <tr><th><acronym title="Web Open Font Format">WOFF</acronym> [[!WOFF]]<td class="rec">REC<td>
-    <tr><th>CSS Text [[!CSS3TEXT]]<td class="wd">WD<td>(See Issue 13 below)
+      <a href="#req-responsive" class=reqRef></a>,
+      <a href="#req-rich-fonts" class=reqRef></a>
+    <tr><th>CSS Text [[!CSS3TEXT]] <sup id="fn2-ref">[2](#fn2)</sup><td class="wd">WD<td>
+      <a href="#req-rich-fonts" class=reqRef></a>
     <tr><th rowspan="2">Animations and Transitions
     <th>CSS Animations [[!CSS3-ANIMATIONS]]<td class="wd">WD<td>
+      <a href="#req-interoperability" class=reqRef></a>
     <tr><th>CSS Transitions [[!CSS3-TRANSITIONS]]<td class="wd">WD<td>
-      <tr><td class="nb" colspan="4">(Issue 9) Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`).
-    <tr><td class="nb" colspan="4">(Issue 13) We're interested in a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1.
-
+      <a href="#req-app-feel" class=reqRef></a>
 </table>
+
+<p><small id="fn1">1. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `cycle()`). [↩](#fn1-ref)</small></p>
+
+<p><small id="fn2">2. The requirements are only for a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1. [↩](#fn2-ref)</small></p>
 
 ## Scripting
 
