@@ -182,7 +182,7 @@ Use cases
     Record voice memos
     ------------------
     
-    While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed. The application notifies John when the transcription is finished and the content of his voice memo is available as raw text.
+    While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed.
     
     Derived requirements:
     <a href="#req-offline" class="reqRef"></a>,
@@ -326,8 +326,6 @@ Use cases
     ----------
     
     <p id="req-file-upload" class=req>It MUST be possible to asynchronously upload files to remote server on different origins. Ideally, uploads should continue even if the user navigates to a different page.</p>
-    
-    <p id="req-server-sent-events" class=req>A remote server MUST be able to notify connected User Agents.</p>
     
     <p id="req-url-schemes" class=req>`mailto:`, `tel:`, `sms:` and `mmsto:` URL schemes SHOULD allow the user to respectively send an email, make a phone call, send an SMS or send an MMS using the appropriate application to do so.</p>
     
