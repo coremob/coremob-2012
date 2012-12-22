@@ -555,40 +555,33 @@ The document has the following structure:
     Unaddressed requirements
     ========================
     
-    The following requirements aren't addressed by existing specifications:
-    
-    <a href="#req-meta-data" class="reqRef"></a>,
+    The following requirements aren't addressed by existing specifications: <a href="#req-meta-data" class="reqRef"></a>,
     <a href="#req-fast-scroll" class=reqRef></a>,
     <a href="#req-orientation-lock" class=reqRef></a>, and
     <a href="#req-fullscreen" class=reqRef></a>.
     
+    However, there is early work by some of the working groups to address these.
+    
     Application meta-data
     ---------------------
     
-    The WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).
+    The multitude of existing formats to describe application meta-data (<a href="#req-meta-data" class="reqRef"></a>) have been [listed](http://www.brucelawson.co.uk/2011/installable-web-apps-and-interoperability/) [elsewhere](http://blog.tobie.me/post/14262541286/app-manifests-an-anthology) already. The WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).
     
-    
-    View Orientation
-    ----------------
-    
-    http://www.w3.org/TR/screen-orientation/
-    [[SCREEN-ORIENTATION]]
-    
-    
-    
-    <p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
-    
-    Chromeless Mode
-    ---------------
-    
-    <p class='issue' data-number=8>Within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/). Could end up as an attribute of [Application Configuration](#application-configuration).</p>
     
     Momentum and infinite scrolling
     -------------------------------
     
-    <p class='issue' data-number=11>Request for momentum scrolling (e.g. `-webkit-overflow-scrolling: touch`) are extremely common. Unfortunately, there is no spec effort at this point.</p>
+    Smooth and stutter-free scrolling is first and foremost a QoI issue. However, the requirements (maintaining 60fps while possibly altering the DOM) are sufficiently taxing that they are difficult to meet on mobile devices, even on high-end ones. Some [very recent work](http://fremycompany.com/TR/2012/ED-css-viewport/) attempts to cater to this issue.
     
+    Screen Orientation
+    ------------------
     
+    A specification to fulfill <a href="#req-orientation-lock" class=reqRef></a> is a deliverable of the WebApps WG. A first public Working Draft [[SCREEN-ORIENTATION]] was recently publish by the WG.
+    
+    Chromeless Mode
+    ---------------
+    
+    While within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/), no work that would address <a href="#req-fullscreen" class=reqRef></a> is currently ongoing.
     
     Conformance
     ===========
