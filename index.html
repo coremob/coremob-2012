@@ -525,28 +525,27 @@ The document has the following structure:
     
     Implementors should implement dedicated form controls where appropriate.
     
-    Requirements not or only partially addressed by existing specifications
-    =======================================================================
-    
-    Partially addressed requirements
-    --------------------------------
+    Requirements only partially addressed by existing specifications
+    ================================================================
     
     The following requirements are only partially addressed by existing specifications: <a href="#req-interoperability" class="reqRef"></a>,
     <a href="#req-mobile-specific" class="reqRef"></a>,
     <a href="#req-offline" class="reqRef"></a>,
     <a href="#req-responsive" class="reqRef"></a>.
     
-    ### Pointer events
+    Pointer events
+    --------------
     
-    While <a href="#req-interoperability" class="reqRef"></a> and <a href="#req-mobile-specific" class="reqRef"></a> are generally addressed by a number of existing specifications, there is one area which is still problematic: user input. Touch-enabled devices delay click inputs (presumably to handle long and double taps). While there exists [different](https://developers.google.com/mobile/articles/fast_buttons) [solutions](https://github.com/ftlabs/fastclick) to remove that delay, developers tend to rely instead on touch events [[TOUCH-EVENTS]]. In turn, this creates content which doesn't work properly when used with a different kind of input mechanism. In order to address this situation, the [Pointer Event WG](http://www.w3.org/2012/pointerevents/) was formed and has published a first Working Draft ([[POINTER-EVENTS]]). The CG encourages this effort.
+    While <a href="#req-interoperability" class="reqRef"></a> and <a href="#req-mobile-specific" class="reqRef"></a> are generally addressed by a number of existing specifications, there is one area which is still problematic: user input. Touch-enabled devices delay click inputs (presumably to handle long and double taps). While there exists [different](https://developers.google.com/mobile/articles/fast_buttons) [solutions](https://github.com/ftlabs/fastclick) to remove that delay, developers tend to rely instead on touch events [[TOUCH-EVENTS]]. In turn, this creates content which doesn't work properly when used with a different kind of input mechanism. In order to address this situation, the [Pointer Event WG](http://www.w3.org/2012/pointerevents/) was formed and has published a first Working Draft [[POINTER-EVENTS]]. The CG encourages this effort.
     
-    ### Offline
+    Offline
+    -------
     
     Currently, Application Cache is the only Web technology designed to address <a href="#req-offline" class="reqRef"></a>. Its issues have already been [exhaustively](http://www.w3.org/2011/web-apps-ws/Report) [documented](https://etherpad.mozilla.org/appcache-london) [elsewhere](https://etherpad.mozilla.org/appcache). This technology is very complex, poorly understood, and hard to use. It is also [marked at risk](http://www.w3.org/TR/html5/#status-of-this-document) in the HTML5 specification.
     
     Recently, the [WebApps WG has decided to take over this work](http://www.w3.org/2012/10/30-webapps-minutes.html#item06) with the blessing of the HTML WG. In parallel, the [Fixing Application Cache CG](http://www.w3.org/community/fixing-appcache/) is collecting case studies, use cases and requirements.
     Unaddressed requirements
-    ------------------------
+    ========================
     
     <a href="#req-meta-data" class="reqRef"></a>,
     <a href="#req-fast-scroll" class=reqRef></a>,
