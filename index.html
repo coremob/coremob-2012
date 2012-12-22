@@ -544,26 +544,35 @@ The document has the following structure:
     Currently, Application Cache is the only Web technology designed to address <a href="#req-offline" class="reqRef"></a>. Its issues have already been [exhaustively](http://www.w3.org/2011/web-apps-ws/Report) [documented](https://etherpad.mozilla.org/appcache-london) [elsewhere](https://etherpad.mozilla.org/appcache). This technology is very complex, poorly understood, and hard to use. It is also [marked at risk](http://www.w3.org/TR/html5/#status-of-this-document) in the HTML5 specification.
     
     Recently, the [WebApps WG has decided to take over this work](http://www.w3.org/2012/10/30-webapps-minutes.html#item06) with the blessing of the HTML WG. In parallel, the [Fixing Application Cache CG](http://www.w3.org/community/fixing-appcache/) is collecting case studies, use cases and requirements.
+    
+    Responsive Images
+    -----------------
+    
+    While a lot has been done to address <a href="#req-responsive" class="reqRef"></a>, notably through media queries, there is no set solution for responsive images to date. The [Responsive Images CG](http://www.w3.org/community/respimg/) has made a proposal ([The picture element](http://picture.responsiveimages.org/)), and so has the HTML WG ([The srcset attribute](http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/Overview.html)). The HTML WG is set to determine the merit of both solutions and examine whether they should be combined.
+
     Unaddressed requirements
     ========================
     
+    The following requirements aren't addressed by existing specifications:
+    
     <a href="#req-meta-data" class="reqRef"></a>,
     <a href="#req-fast-scroll" class=reqRef></a>,
-    <a href="#req-orientation-lock" class=reqRef></a>,
+    <a href="#req-orientation-lock" class=reqRef></a>, and
     <a href="#req-fullscreen" class=reqRef></a>.
     
-    Application Configuration
-    -------------------------
+    Application meta-data
+    ---------------------
     
-    <p class='issue' data-number=6>WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).</p>
+    The WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).
     
-    Application Cache
-    -----------------
-    
-    <p class='issue' data-number=1>Some [critical AppCache issues](https://www.w3.org/Bugs/Public/show_bug.cgi?id=14702) are being [fixed](http://html5.org/tools/web-apps-tracker?from=7135&amp;to=7136) in the HTML Living Standard spec. Unfortunately, these fixes aren't brought (yet) to the HTML5 spec because they are considered new features belonging in HTML.next. What should the group's position be with regards to that?</p>
     
     View Orientation
     ----------------
+    
+    http://www.w3.org/TR/screen-orientation/
+    [[SCREEN-ORIENTATION]]
+    
+    
     
     <p class='issue' data-number=7>This is a new deliverable of the WebApps WG. See the WG's [charter](http://www.w3.org/2012/webapps/charter/) for details. No spec to link to for the moment. Could also end up as an attribute of [Application Configuration](#application-configuration).</p>
     
