@@ -496,34 +496,7 @@ The document has the following structure:
     <tr><td>The `mmsto:` URI scheme [[OMA-URI-SCHEMES]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
   </tbody>
 </table>
-    
-    Quality of Implementation
-    =========================
-    
-    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
-    
-    The group's work to date has yielded the following particular points of note:
-    
-    QoI of the `audio` element
-    --------------------------
-    
-    Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.
-    
-    Performance of the `canvas` element
-    -----------------------------------
-    
-    Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.
-    
-    Performance of scrolling, transitions, and animations
-    -----------------------------------------------------
-    
-    Smooth scrolling, transitions, and animations are key to delivering great user experiences. Implementations should aim to render these at 60fps.
-    
-    Dedicated form controls
-    -----------------------
-    
-    On mobile devices content input is often tedious. Implementors should therefore implement dedicated form controls where appropriate (for example, displaying a numerical keypad for inputs of type `tel`).
-    
+
     Requirements only partially addressed by existing specifications
     ================================================================
     
@@ -566,7 +539,6 @@ The document has the following structure:
     
     The multitude of existing formats to describe application meta-data (<a href="#req-meta-data" class="reqRef"></a>) have been [listed](http://www.brucelawson.co.uk/2011/installable-web-apps-and-interoperability/) [elsewhere](http://blog.tobie.me/post/14262541286/app-manifests-an-anthology) already. The WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft).
     
-    
     Momentum and infinite scrolling
     -------------------------------
     
@@ -582,11 +554,37 @@ The document has the following structure:
     
     While within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/), no work that would address <a href="#req-fullscreen" class=reqRef></a> is currently ongoing.
     
+    
+    Quality of Implementation
+    =========================
+    
+    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
+    
+    The group's work to date has yielded the following particular points of note:
+    
+    QoI of the `audio` element
+    --------------------------
+    
+    Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.
+    
+    Performance of the `canvas` element
+    -----------------------------------
+    
+    Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.
+    
+    Performance of scrolling, transitions, and animations
+    -----------------------------------------------------
+    
+    Smooth scrolling, transitions, and animations are key to delivering great user experiences. Implementations should aim to render these at 60fps.
+    
+    Dedicated form controls
+    -----------------------
+    
+    On mobile devices content input is often tedious. Implementors should therefore implement dedicated form controls where appropriate (for example, displaying a numerical keypad for inputs of type `tel`).
+    
     Conformance
     ===========
 
 This document does not express any conformance requirements. Conformance to this document would consist of conforming to the technology standards it identifies, however, some of the technology standards it identifies have not advanced to a sufficient state of maturity to be capable of having conformance requirements.
-
-
   </body>
 </html>
