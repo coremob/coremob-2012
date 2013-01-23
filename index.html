@@ -512,7 +512,8 @@ The document has the following structure:
     The following requirements are only partially addressed by existing specifications: <a href="#req-interoperability" class="reqRef"></a>,
     <a href="#req-mobile-specific" class="reqRef"></a>,
     <a href="#req-offline" class="reqRef"></a>,
-    <a href="#req-responsive" class="reqRef"></a>.
+    <a href="#req-responsive" class="reqRef"></a>, and
+    <a href="#req-orientation-lock" class=reqRef></a>.
     
     There is ongoing work to address each of those requirements within W3C as detailed below. The CG encourages these efforts.
     
@@ -532,13 +533,17 @@ The document has the following structure:
     -----------------
     
     While a lot has been done to address <a href="#req-responsive" class="reqRef"></a>, notably through media queries, there is no set solution for responsive images to date. The [Responsive Images CG](http://www.w3.org/community/respimg/) has made a proposal ([The picture element](http://picture.responsiveimages.org/)), and so has the HTML WG ([The srcset attribute](http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/Overview.html)). The HTML WG is set to determine the merit of both solutions and examine whether they should be combined.
-
+    
+    Screen Orientation
+    ------------------
+    
+    A specification to fulfill <a href="#req-orientation-lock" class=reqRef></a> is a deliverable of the WebApps WG. A first public Working Draft [[SCREEN-ORIENTATION]] was recently publish by the WG. The CG applauds this effort and encourages the WG to explore other solutions such as a JavaScript API for [[CSS-ADAPTATION]] which already has an `orientation` property.
+    
     Unaddressed requirements
     ========================
     
     The following requirements aren't addressed by existing specifications: <a href="#req-meta-data" class="reqRef"></a>,
-    <a href="#req-fast-scroll" class=reqRef></a>,
-    <a href="#req-orientation-lock" class=reqRef></a>, and
+    <a href="#req-fast-scroll" class=reqRef></a>, and
     <a href="#req-fullscreen" class=reqRef></a>.
     
     However, there is early work going on to address some of these.
@@ -552,11 +557,6 @@ The document has the following structure:
     -------------------------------
     
     Smooth and stutter-free scrolling is first and foremost a QoI issue. However, the requirements (maintaining 60fps while possibly altering the DOM) are sufficiently taxing that they are difficult to meet on mobile devices, even on high-end ones. Some [very recent work](http://fremycompany.com/TR/2012/ED-css-viewport/) attempts to cater to this issue.
-    
-    Screen Orientation
-    ------------------
-    
-    A specification to fulfill <a href="#req-orientation-lock" class=reqRef></a> is a deliverable of the WebApps WG. A first public Working Draft [[SCREEN-ORIENTATION]] was recently publish by the WG.
     
     Chromeless Mode
     ---------------
