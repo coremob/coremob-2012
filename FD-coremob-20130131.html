@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Core Mobile Web Platform — 2012</title>
+    
+    <style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 { 
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #ff4500;
+}
+
+
+/* --- --- */
+ol.algorithm { counter-reset:numsection; list-style-type: none; }
+ol.algorithm li { margin: 0.5em 0; }
+ol.algorithm li:before { font-weight: bold; counter-increment: numsection; content: counters(numsection, ".") ") "; }
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+</style><style>/* --- ISSUES/NOTES --- */
+div.issue-title, div.note-title {
+    padding-right:  1em;
+    min-width: 7.5em;
+    color: #b9ab2d;
+}
+div.issue-title { color: #e05252; }
+div.note-title { color: #52e052; }
+div.issue-title span, div.note-title span {
+    text-transform: uppercase;
+}
+div.note, div.issue {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.note > p:first-child, .issue > p:first-child { margin-top: 0 }
+.issue, .note {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+}
+div.issue, div.note {
+    padding: 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+span.note, span.issue { padding: .1em .5em .15em; }
+
+.issue {
+    border-color: #e05252;
+    background: #fbe9e9;
+}
+.note {
+    border-color: #52e052;
+    background: #e9fbe9;
+}
+
+
+</style><link rel="stylesheet" href="http://www.w3.org/community/src/css/spec/cg-draft.css"><!--[if lt IE 9]><script src='http://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]--></head><body><div class="head">
+  <p>
+    <a href="http://www.w3.org/"><img width="72" height="48" src="http://www.w3.org/Icons/w3c_home" alt="W3C"></a>
+  </p>
+  <h1 class="title" id="title">Core Mobile Web Platform — 2012</h1>
+  
+  <h2 id="draft-community-group-specification-31-january-2013">Draft Community Group Specification 31 January 2013</h2>
+  <dl>
+    
+    
+    
+      <dt>Latest editor's draft:</dt>
+      <dd><a href="http://coremob.github.com/coremob-2012/">http://coremob.github.com/coremob-2012/</a></dd>
+    
+    
+    
+    
+    
+      
+        <dt>Previous editor's draft:</dt>
+        <dd><a href="http://coremob.github.com/coremob-2012/ED-coremob-20130123.html">http://coremob.github.com/coremob-2012/ED-coremob-20130123.html</a></dd>
+      
+    
+    <dt>Editors:</dt>
+    <dd><span>Tobie Langel</span>, <a href="http://facebook.com/">Facebook</a></dd>
+<dd><span>Jo Rabin</span>, <a href="http://linguafranca.org">linguafranca.org</a> (from November 2012)</dd>
+<dd><a href="http://berjon.com/">Robin Berjon</a>, <a href="http://robineko.com/">Robineko</a> (until September 2012)</dd>
+
+    
+  </dl>
+  
+  <p class="copyright">
+    <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 
+    2012-2013
+    the Contributors to the Core Mobile Web Platform — 2012 Specification, published by the
+    <a href="http://www.w3.org/community/coremob/">Core Mobile Web Platform Community Group</a> under the
+    
+      <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>.
+      A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available.
+    
+  </p>
+  <hr>
+</div><p>
+  
+  
+  <style>
+  table {border-collapse: collapse; border: 1px solid #bec9d9}
+  td, th {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
+  tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
+  th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
+  tbody tr th {text-align: left;}
+  td.nb { font-size: smaller;}
+  .rec, .pr {color: #005A9C; background-color: #99EE99}
+  .ext {background-color: #FFFFFF}
+  .cr, .lcwd {color: #005A9C; background-color: #EEEE99}
+  .wd {color: #005A9C; background-color: #EE9999}
+  .ed, .fpwd  {color: #005A9C; background-color: #FF7777}
+  </style>
+
+
+
+</p><section id="abstract" class="introductory"><h2>Abstract</h2><p>The W3C Core Mobile Web Platform Community Group was established with the objective of helping to make the Web a compelling platform for developing modern mobile applications. The motivation for that is the widespread view that the Web does not represent a compelling platform for mobile applications today.
+
+</p><p>This document presents a small number of simple mobile Web application use cases. It goes on to list features that the underlying mobile Web platform needs to offer to support those use cases. It then lists technology standards (primarily W3C Recommendations) that describe those features - and also notes the current state of development of such specifications, noting also where such specification do not at present exist.
+
+</p><p>The purpose of the document is to promote understanding of which areas of Web technology are in need of development, and to encourage prioritization of those areas for specification, implementation and testing.
+
+</p><p>Other aspects of the Community Group's work, which includes the collation and specification of test suites to assess conformance to referenced standards, and the specification of a framework within which such conformance testing might be assessed are referenced.
+</p></section><section id="sotd" class="introductory"><h2>Status of This Document</h2>
+  <p>
+    This specification was published by the <a href="http://www.w3.org/community/coremob/">Core Mobile Web Platform Community Group</a>.
+    It is not a W3C Standard nor is it on the W3C Standards Track.
+    
+      Please note that under the 
+      <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+      there is a limited opt-out and other conditions apply.
+    
+    Learn more about 
+    <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.
+  </p>
+  <p>Comments on this document are not only welcomed but are actively solicited and should be made on the <a href="http://lists.w3.org/Archives/Public/public-coremob/">public-coremob@w3.org mailing list</a>. The source code is available on <a href="https://github.com/coremob/coremob-2012">GitHub</a>.
+</p>
+</section><section id="toc"><h2 class="introductory">Table of Contents</h2><ul class="toc"><li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>  Introduction</a><ul class="toc"><li class="tocline"><a href="#audience" class="tocxref"><span class="secno">1.1 </span>Audience</a></li><li class="tocline"><a href="#goals" class="tocxref"><span class="secno">1.2 </span>Goals</a></li><li class="tocline"><a href="#methodology" class="tocxref"><span class="secno">1.3 </span>Methodology</a></li><li class="tocline"><a href="#purpose-of-this-document" class="tocxref"><span class="secno">1.4 </span>Purpose of this Document</a></li><li class="tocline"><a href="#aspirational-nature-of-the-document" class="tocxref"><span class="secno">1.5 </span>Aspirational nature of the document</a></li><li class="tocline"><a href="#mobile-focus" class="tocxref"><span class="secno">1.6 </span>Mobile Focus</a></li><li class="tocline"><a href="#other-aspects-of-the-cg-s-work" class="tocxref"><span class="secno">1.7 </span>Other aspects of the CG's work</a></li><li class="tocline"><a href="#structure" class="tocxref"><span class="secno">1.8 </span>Structure</a></li></ul></li><li class="tocline"><a href="#use-cases" class="tocxref"><span class="secno">2. </span>  Use cases</a><ul class="toc"><li class="tocline"><a href="#take-pictures-in-a-remote-area-without-network-coverage" class="tocxref"><span class="secno">2.1 </span>  Take pictures in a remote area without network coverage</a></li><li class="tocline"><a href="#record-voice-memos" class="tocxref"><span class="secno">2.2 </span>  Record voice memos</a></li><li class="tocline"><a href="#play-a-2d-game" class="tocxref"><span class="secno">2.3 </span>  Play a 2D Game</a></li><li class="tocline"><a href="#find-the-nearest-subway-station" class="tocxref"><span class="secno">2.4 </span>  Find the nearest subway station</a></li><li class="tocline"><a href="#read-an-online-magazine" class="tocxref"><span class="secno">2.5 </span>  Read an online magazine</a></li><li class="tocline"><a href="#view-a-regular-web-site" class="tocxref"><span class="secno">2.6 </span>  View a regular Web site</a></li><li class="tocline"><a href="#browse-a-responsive-web-site" class="tocxref"><span class="secno">2.7 </span>  Browse a responsive Web site</a></li><li class="tocline"><a href="#bookmarking-a-web-application" class="tocxref"><span class="secno">2.8 </span>  Bookmarking a Web application</a></li></ul></li><li class="tocline"><a href="#derived-requirements" class="tocxref"><span class="secno">3. </span>  Derived Requirements</a><ul class="toc"><li class="tocline"><a href="#general" class="tocxref"><span class="secno">3.1 </span>  General</a></li><li class="tocline"><a href="#app-specific" class="tocxref"><span class="secno">3.2 </span>  App-specific</a></li><li class="tocline"><a href="#storage" class="tocxref"><span class="secno">3.3 </span>  Storage</a></li><li class="tocline"><a href="#multimedia" class="tocxref"><span class="secno">3.4 </span>  Multimedia</a></li><li class="tocline"><a href="#sensors" class="tocxref"><span class="secno">3.5 </span>  Sensors</a></li><li class="tocline"><a href="#networking" class="tocxref"><span class="secno">3.6 </span>  Networking</a></li></ul></li><li class="tocline"><a href="#specifications-which-address-the-derived-requirements" class="tocxref"><span class="secno">4. </span>  Specifications which address the derived requirements</a><ul class="toc"><li class="tocline"><a href="#markup" class="tocxref"><span class="secno">4.1 </span>  Markup</a></li><li class="tocline"><a href="#style" class="tocxref"><span class="secno">4.2 </span>  Style</a></li><li class="tocline"><a href="#scripting" class="tocxref"><span class="secno">4.3 </span>  Scripting</a></li><li class="tocline"><a href="#network" class="tocxref"><span class="secno">4.4 </span>  Network</a></li></ul></li><li class="tocline"><a href="#requirements-only-partially-addressed-by-existing-specifications" class="tocxref"><span class="secno">5. </span>  Requirements only partially addressed by existing specifications</a><ul class="toc"><li class="tocline"><a href="#pointer-events" class="tocxref"><span class="secno">5.1 </span>  Pointer events</a></li><li class="tocline"><a href="#responsive-images" class="tocxref"><span class="secno">5.2 </span>  Responsive Images</a></li><li class="tocline"><a href="#application-meta-data" class="tocxref"><span class="secno">5.3 </span>  Application meta-data</a></li><li class="tocline"><a href="#offline" class="tocxref"><span class="secno">5.4 </span>  Offline</a></li><li class="tocline"><a href="#screen-orientation" class="tocxref"><span class="secno">5.5 </span>  Screen Orientation</a></li></ul></li><li class="tocline"><a href="#unaddressed-requirements" class="tocxref"><span class="secno">6. </span>  Unaddressed requirements</a><ul class="toc"><li class="tocline"><a href="#momentum-and-infinite-scrolling" class="tocxref"><span class="secno">6.1 </span>  Momentum and infinite scrolling</a></li><li class="tocline"><a href="#chromeless-mode" class="tocxref"><span class="secno">6.2 </span>  Chromeless Mode</a></li></ul></li><li class="tocline"><a href="#quality-of-implementation" class="tocxref"><span class="secno">7. </span>  Quality of Implementation</a><ul class="toc"><li class="tocline"><a href="#qoi-of-the-audio-element" class="tocxref"><span class="secno">7.1 </span>  QoI of the <code>audio</code> element</a></li><li class="tocline"><a href="#performance-of-the-canvas-element" class="tocxref"><span class="secno">7.2 </span>  Performance of the <code>canvas</code> element</a></li><li class="tocline"><a href="#performance-of-scrolling-transitions-and-animations" class="tocxref"><span class="secno">7.3 </span>  Performance of scrolling, transitions, and animations</a></li><li class="tocline"><a href="#dedicated-form-controls" class="tocxref"><span class="secno">7.4 </span>  Dedicated form controls</a></li></ul></li><li class="tocline"><a href="#conformance" class="tocxref"><span class="secno">8. </span>  Conformance</a></li><li class="tocline"><a href="#acknowledgements" class="tocxref"><span class="secno">A. </span>Acknowledgements</a></li><li class="tocline"><a href="#references" class="tocxref"><span class="secno">B. </span>References</a><ul class="toc"><li class="tocline"><a href="#informative-references" class="tocxref"><span class="secno">B.1 </span>Informative references</a></li></ul></li></ul></section><section id="introduction"><!--OddPage--><h2><span class="secno">1. </span>  Introduction</h2><p>Quoting from its <a href="http://www.w3.org/community/coremob/charter/">charter</a>: 
+
+</p><blockquote>
+<p>The goal of the Core Mobile Web Platform (Coremob) Community Group (CG) is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to:
+
+</p>
+<ol>
+<li>Agree on core features developers can depend on. These will be defined by reference to a variety of other specifications from the W3C and other standards bodies.</li>
+<li>Compile related conformance test suites.</li>
+<li>Provide to W3C (and non-W3C) groups use cases, scenarios, and other input to drive successful mobile deployment.</li>
+</ol>
+</blockquote><p>This document is the initial output of the Community Group. Its focus is items 1 and 3 from its charter above.
+
+</p><p>The following sections serve to contextualize the role of this document against the CG charter.
+
+</p><section id="audience"><h3><span class="secno">1.1 </span>Audience</h3><p>The primary audience for this document is standardization groups within the W3C as well as equipment manufacturers and browser vendors. The CG also intends it to be of interest to others in its chartered constituency, especially developers, for feedback on the selection of use cases and the derivation of technology requirements from those use cases.
+
+</p></section><section id="goals"><h3><span class="secno">1.2 </span>Goals</h3><p>In respect of Coremob Charter item 1. above, developers should be able to rely upon a set of Web technologies being consistently present and interoperably implemented across a wide range of browsers. 
+
+</p><p>Technology specifications do not advance at a similar rate and are not necessarily of equally widespread utility for particular application use cases. In addition, some depend on others. This document is a description of a subset of Web platform technologies, and provides for a limited, or base set of such use cases.
+
+</p><p>The CG may go on to produce a number of further descriptions of subsets of Web platform technology specifications which will provide for increasingly sophisticated application use cases. 
+
+</p></section><section id="methodology"><h3><span class="secno">1.3 </span>Methodology</h3><p>The use cases chosen reflect a selection of popular applications that have been created using "native" techniques. Although the chosen set of use cases is limited, and the functionality implied by them is (relatively speaking) simple, the set of functionalities is nonetheless described as being "aspirational" because it goes beyond the state of implementation by most current browsers, and indeed goes beyond the current state of specification of some of those features - see below <a href="#aspirational-nature-of-the-document">Aspirational nature of the document</a> for a discussion of the aspirational aspect, as construed in this revision. 
+
+</p><p>Having identified features of the Web platform that are required to fulfill the use cases it is then possible to identify a set of technology specifications (or to note the absence of suitable specifications) that specify those features.
+
+</p><p>Further, having identified a set of specifications, it is then possible to identify a set of tests (or note the absence of such tests) that can be used to assess conformance with the identified specifications and also to propose a test environment in which those tests can be carried out.
+
+</p></section><section id="purpose-of-this-document"><h3><span class="secno">1.4 </span>Purpose of this Document</h3><p>This document, as mentioned above, sets out the initial limited set of use cases; it derives Web platform technology requirements from them and it identifies technology specifications, at various states of maturity, that fulfill those requirements. It does not identify tests or test suites that match those technology specifications.
+
+</p><p>Since standardization work is required to complete the set of technologies required to fulfill the various use cases the document identifies, one of the purposes of the document is to point out that increased coordination between the groups that create standards would be beneficial in order to create a more coherent and pragmatically useful mobile Web application platform. 
+
+</p><p>The intention of this document and subsequent editions, in regard of developers, is to solicit feedback on the use cases and on specific technology areas that are problematic when used in a mobile context. Developers are especially encouraged to contribute to the work of the CG, since it is hoped that such participation will reduce future maintenance and development costs for them and will also provide a means by which developers' voices may be heard by constituencies that need to hear them.
+
+</p></section><section id="aspirational-nature-of-the-document"><h3><span class="secno">1.5 </span>Aspirational nature of the document</h3><p>To be clear, the CG is not expressing the judgment that it is not possible to use the Web platform to build a wide variety of applications that can be used in a mobile context. Indeed, there are applications that can be built on the Web platform that work well in a mobile delivery context. The group notes, though, that those applications are not usually specifically mobile in their use cases and tend to be similar in nature to applications that have desktop use cases as much as they have mobile use cases.
+
+</p><p>Further, the view that it is already practical to develop effective mobile Web applications is expressed with the caveat that there are many "quality of implementation" issues that developers may encounter. For example, the frame rate achievable when developing mobile games may not be sufficient, in some cases, and as another example the synchronization of playing sounds may not be adequate.
+
+</p></section><section id="mobile-focus"><h3><span class="secno">1.6 </span>Mobile Focus</h3><p>Mobile devices often have capabilities (such as a camera) or circumstances of use (such as periods off line, or frequent periods with low bandwidth for data transfer) that make mobile both a more rewarding environment for creation of applications and a more difficult environment for such implementations too.
+
+</p><p>With the rapid increase in uptake of use of mobile devices, both in developed markets and in less developed markets (perhaps as the only means of Web access in those markets), the CG believes that closing the gap between what can be achieved using Web technology on mobile and what can be achieved using "native application implementations" needs to narrow, urgently.
+
+</p></section><section id="other-aspects-of-the-cg-s-work"><h3><span class="secno">1.7 </span>Other aspects of the CG's work</h3><p>Other aspects of the CG's work, as mentioned in its charter, continue in parallel to the development of this document. Those activities include a "Gap analysis" of where there are existing test suites relevant to the technologies identified in this document, as well as discussion of a Test Framework within which to execute tests of the conformance of implementations of technologies identified here.
+
+</p><p>The CG's <a href="http://www.w3.org/community/coremob/">Web site</a> and <a href="http://www.w3.org/community/coremob/wiki/">Wiki</a> contain links to various aspects of the group's work.
+
+</p></section><section id="structure"><h3><span class="secno">1.8 </span>Structure</h3><p>The document has the following structure:
+
+</p><ol>
+<li><p>Introduction</p>
+<p>This section, containing information about the document, its history and its scope.</p>
+</li>
+<li><p>Use Cases</p>
+<p>Discusses the use cases that have been used to derive the requirements of Web technologies.</p>
+</li>
+<li><p>Required Technologies</p>
+<p>Discusses in abstract terms what technologies are needed to support the use cases.</p>
+</li>
+<li><p>Specifications Selected</p>
+<p>Discusses the specifications selected to implement "required technologies".</p>
+</li>
+<li><p>Missing Specifications</p>
+<p>Discusses technologies needed but not specified.</p>
+</li>
+<li><p>Quality of Implementation</p>
+<p>Discusses aspects of implementation of some of the selected technologies</p>
+</li>
+</ol></section></section><section id="use-cases"><!--OddPage--><h2><span class="secno">2. </span>  Use cases</h2><p>  The following use cases are designed to be illustrative and are by no means exhaustive. The basis of selection of the use cases is a <a href="https://docs.google.com/spreadsheet/ccc?key=0AuIhlK0fCwP4dEFPR1pUWHk1QVczcV9xbFAtX19CMXc#gid=1">survey</a> of the top native applications found in mobile application stores. Each application was assessed for its key features and prioritized according to an assessment of how many applications those features would unlock.
+
+</p><section id="take-pictures-in-a-remote-area-without-network-coverage"><h3><span class="secno">2.1 </span>  Take pictures in a remote area without network coverage</h3><p>  Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a Web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
+
+</p><p>  Derived requirements:
+  <a href="#req-offline" class="reqRef">Req. 6</a>,
+  <a href="#req-app-look" class="reqRef">Req. 8</a>,
+  <a href="#req-app-feel" class="reqRef">Req. 9</a>,
+  <a href="#req-fast-scroll" class="reqRef">Req. 10</a>,
+  <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+  <a href="#req-camera-access" class="reqRef">Req. 15</a>,
+  <a href="#req-pic-manipulation" class="reqRef">Req. 17</a>,
+  <a href="#req-file-upload" class="reqRef">Req. 23</a>.
+
+</p></section><section id="record-voice-memos"><h3><span class="secno">2.2 </span>  Record voice memos</h3><p>  While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed.
+
+</p><p>  Derived requirements:
+  <a href="#req-offline" class="reqRef">Req. 6</a>,
+  <a href="#req-app-look" class="reqRef">Req. 8</a>,
+  <a href="#req-app-feel" class="reqRef">Req. 9</a>,
+  <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+  <a href="#req-microphone-access" class="reqRef">Req. 16</a>,
+  <a href="#req-file-upload" class="reqRef">Req. 23</a>.
+
+</p></section><section id="play-a-2d-game"><h3><span class="secno">2.3 </span>  Play a 2D Game</h3><p>  Fantastic Rafaela Sis' is a game the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each level consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The character is controlled by tilting the device. Consequently, the game must be locked in landscape mode to avoid auto-rotation of the viewport interfering with the game play. It has a soundtrack per level and various sound effects.
+
+</p><p>  Derived requirements:
+  <a href="#req-orientation-lock" class="reqRef">Req. 11</a>,
+  <a href="#req-fullscreen" class="reqRef">Req. 12</a>,
+  <a href="#req-framerate" class="reqRef">Req. 18</a>,
+  <a href="#req-audio-playback" class="reqRef">Req. 19</a>,
+  <a href="#req-position" class="reqRef">Req. 21</a>.
+
+</p></section><section id="find-the-nearest-subway-station"><h3><span class="secno">2.4 </span>  Find the nearest subway station</h3><p>  Joe uses public transportation to visit his clients scattered around town. In order to find his way around he relies on a Web application that is able to locate him on a map, display the closest subway station and indicate in which direction he should walk to find it.
+
+</p><p>  Derived requirements:
+  <a href="#req-position" class="reqRef">Req. 21</a>,
+  <a href="#req-geolocation" class="reqRef">Req. 22</a>.
+
+</p></section><section id="read-an-online-magazine"><h3><span class="secno">2.5 </span>  Read an online magazine</h3><p>  Jane likes to read the news on her commute to work. She uses a Web application on her tablet that she updates before leaving home. While on the subway, she is able to read the daily news, watch a video of the highlights of yesterday's football match and listen to the magazine's weekly political podcast. Jane is able to navigate through the application using the back and forward button of her browser. And when she finds an article she would like to share with her friend, Sam, she is able to copy and paste the URL into an email.
+
+</p><p>  Derived requirements:
+  <a href="#req-rich-fonts" class="reqRef">Req. 4</a>,
+  <a href="#req-offline" class="reqRef">Req. 6</a>,
+  <a href="#req-history" class="reqRef">Req. 7</a>,
+  <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+  <a href="#req-data-storage" class="reqRef">Req. 14</a>,
+  <a href="#req-audio-playback" class="reqRef">Req. 19</a>,
+  <a href="#req-video-playback" class="reqRef">Req. 20</a>,
+  <a href="#req-url-schemes" class="reqRef">Req. 24</a>.
+
+</p></section><section id="view-a-regular-web-site"><h3><span class="secno">2.6 </span>  View a regular Web site</h3><p>  Annette is using her mobile device to access her bank's Web site. Although her bank has a dedicated native application <em>and</em> a mobile version of its site, the information she is looking for is only available on the main site. She is nonetheless able to consult it because her mobile browser supports the same set of Web standards as her desktop browser, and is capable of displaying that information despite the difference in screen size and pixel density.
+
+</p><p>  Derived requirements:
+  <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+  <a href="#req-mobile-specific" class="reqRef">Req. 2</a>.
+
+</p></section><section id="browse-a-responsive-web-site"><h3><span class="secno">2.7 </span>  Browse a responsive Web site</h3><p>  John is en route to his dental appointment. He is late, does not have a record of his dentist's phone number in his mobile device's address book, and has a very poor network connection. Fortunately, the dentist has a responsive Web site which displays with minimal use of resources on John's mobile device. He is able to find his dentist's phone number and call her.
+
+</p><p>  Derived requirements:
+  <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+  <a href="#req-mobile-specific" class="reqRef">Req. 2</a>,
+  <a href="#req-responsive" class="reqRef">Req. 3</a>,
+  <a href="#req-url-schemes" class="reqRef">Req. 24</a>.
+
+</p></section><section id="bookmarking-a-web-application"><h3><span class="secno">2.8 </span>  Bookmarking a Web application</h3><p>  Paul uses the same Web mail application on various devices and browsers. He would like to bookmark it so that it is easily recognizable across his different devices yet blends in with how other applications are portrayed in the given environment.
+
+</p><p>  Derived requirements:
+  <a href="#req-meta-data" class="reqRef">Req. 5</a>.
+
+</p></section></section><section id="derived-requirements"><!--OddPage--><h2><span class="secno">3. </span>  Derived Requirements</h2><div class="note"><div class="note-title"><span>Note</span></div><p class="">Managing battery use and network connectivity (e.g. delay, throughput and cost) is an important concern on mobile devices. The CG thinks that agreement on what it is practical to measure and what actions developers might take in response to those measurements is not at a sufficiently advanced stage to posit requirements in this area.</p></div><p>  The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef sec-ref">section 2.   Use cases</a>.
+
+</p><section id="general"><h3><span class="secno">3.1 </span>  General</h3><p id="req-interoperability" class="req"><a href="#req-interoperability">Req. 1</a>: A User Agent <em class="rfc2119" title="must">must</em> support technology commonly available on desktop browsers, so that Web sites and applications designed for desktop are still usable on mobile.</p><p id="req-mobile-specific" class="req"><a href="#req-mobile-specific">Req. 2</a>: The User Agent <em class="rfc2119" title="must">must</em> be able to display content specifically targeted at mobile devices.</p><p id="req-responsive" class="req"><a href="#req-responsive">Req. 3</a>: It <em class="rfc2119" title="must">must</em> be possible for the User Agent to download and display different content depending on device or User Agent properties such as screen size, pixel density, etc.</p><p id="req-rich-fonts" class="req"><a href="#req-rich-fonts">Req. 4</a>: The User Agent <em class="rfc2119" title="must">must</em> support rich typography including using downloadable fonts.</p></section><section id="app-specific"><h3><span class="secno">3.2 </span>  App-specific</h3><p id="req-meta-data" class="req"><a href="#req-meta-data">Req. 5</a>: It <em class="rfc2119" title="must">must</em> be possible to provide the User Agent with metadata a such as the application's name, icon, etc.</p><p id="req-offline" class="req"><a href="#req-offline">Req. 6</a>: It <em class="rfc2119" title="must">must</em> be possible to make an application available off-line.</p><p id="req-history" class="req"><a href="#req-history">Req. 7</a>: The User Agent <em class="rfc2119" title="must">must</em> allow the application developer to define URLs for chosen resources (for example for bookmarking or sharing) and to manipulate session history for single page applications.</p><p id="req-app-look" class="req"><a href="#req-app-look">Req. 8</a>: It <em class="rfc2119" title="must">must</em> be possible for Web application user interfaces to occupy all the screen space yet adapt to different screen sizes without leaving unused space or overflowing.</p><p id="req-app-feel" class="req"><a href="#req-app-feel">Req. 9</a>: It <em class="rfc2119" title="must">must</em> be possible for Web application user interfaces to transition smoothly from one state to another.</p><p id="req-fast-scroll" class="req"><a href="#req-fast-scroll">Req. 10</a>: It <em class="rfc2119" title="must">must</em> be possible to scroll smoothly through a large body of content.</p><p id="req-orientation-lock" class="req"><a href="#req-orientation-lock">Req. 11</a>: A Web application might be designed to be used strictly in portrait or landscape mode. It <em class="rfc2119" title="must">must</em> be possible to signal this preference to the User Agent.</p><p id="req-fullscreen" class="req"><a href="#req-fullscreen">Req. 12</a>: It <em class="rfc2119" title="must">must</em> be possible for an application to signal to the User Agent that it wants to operate full screen and not inside the User Agent's chrome.</p></section><section id="storage"><h3><span class="secno">3.3 </span>  Storage</h3><p id="req-file-storage" class="req"><a href="#req-file-storage">Req. 13</a>: It <em class="rfc2119" title="must">must</em> be possible to store files locally and retrieve them without requiring further permission from the user.</p><p id="req-data-storage" class="req"><a href="#req-data-storage">Req. 14</a>: It <em class="rfc2119" title="must">must</em> be possible to asynchronously store and retrieve large, structured persistent data sets.</p></section><section id="multimedia"><h3><span class="secno">3.4 </span>  Multimedia</h3><p id="req-camera-access" class="req"><a href="#req-camera-access">Req. 15</a>: It <em class="rfc2119" title="must">must</em> be possible to take pictures using the device's camera. This <em class="rfc2119" title="must">must</em> be done in such a way that the user's security and privacy is respected.</p><p id="req-microphone-access" class="req"><a href="#req-microphone-access">Req. 16</a>: It <em class="rfc2119" title="must">must</em> be possible to record audio clips using the device's microphone. This <em class="rfc2119" title="must">must</em> be done in such a way that the user's security and privacy is respected.</p><p id="req-pic-manipulation" class="req"><a href="#req-pic-manipulation">Req. 17</a>: It <em class="rfc2119" title="must">must</em> be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This <em class="rfc2119" title="must not">must not</em> interrupt the ability of the user to interact with the application.</p><p id="req-framerate" class="req"><a href="#req-framerate">Req. 18</a>: It <em class="rfc2119" title="must">must</em> be possible to smoothly draw multiple animated sprites in full screen mode (e.g. at 30fps).</p><p id="req-audio-playback" class="req"><a href="#req-audio-playback">Req. 19</a>: It <em class="rfc2119" title="must">must</em> be possible to play Multiple sound files simultaneously with minimal latency.</p><p id="req-video-playback" class="req"><a href="#req-video-playback">Req. 20</a>: It <em class="rfc2119" title="must">must</em> be possible to play video content.</p></section><section id="sensors"><h3><span class="secno">3.5 </span>  Sensors</h3><p id="req-position" class="req"><a href="#req-position">Req. 21</a>: It <em class="rfc2119" title="must">must</em> be possible for the application to register to receive updates when the position of the device changes.</p><p id="req-geolocation" class="req"><a href="#req-geolocation">Req. 22</a>: It <em class="rfc2119" title="must">must</em> be possible to obtain the device's current geographic coordinates provided the user consents to sharing those.</p></section><section id="networking"><h3><span class="secno">3.6 </span>  Networking</h3><p id="req-file-upload" class="req"><a href="#req-file-upload">Req. 23</a>: It <em class="rfc2119" title="must">must</em> be possible to upload files to remote server on different origins asynchronously. Uploads <em class="rfc2119" title="should">should</em> continue even if the user navigates to a different page.</p><p id="req-url-schemes" class="req"><a href="#req-url-schemes">Req. 24</a>: <code>mailto:</code>, <code>tel:</code>, <code>sms:</code> and <code>mmsto:</code> URL schemes <em class="rfc2119" title="should">should</em> allow the user to send an email, make a phone call, send an SMS or send an MMS using the appropriate application to do so.</p></section></section><section id="specifications-which-address-the-derived-requirements"><!--OddPage--><h2><span class="secno">4. </span>  Specifications which address the derived requirements</h2><p>  This section lists existing specifications which address the requirements expressed in <a href="#derived-requirements" class="sectionRef sec-ref">section 3.   Derived Requirements</a> and notes their current state of standardization (progress along <a href="http://www.w3.org/2005/10/Process-20051014/tr.html#maturity-levels">W3C Rec Track</a> is noted using conventional abbreviations).
+
+</p><p>  The document <a href="http://www.w3.org/Mobile/mobile-web-app-state/">Standards for Web Applications on Mobile: current state and roadmap</a>  is regularly updated to reflect current status both of standardization and of implementation of many of the same standards.
+
+</p><div class="note"><div class="note-title"><span>Note</span></div><p class="">The CG has had frequent cause to discuss whether or not it needs to make reference to <strong>the whole</strong> of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p></div><div class="note"><div class="note-title"><span>Note</span></div><p class="">The CG notes that simple interoperability of video and audio content is highly desirable. The CG also notes that considerations regarding such interoperability concern all aspects of the use of such content on the Web (and are not of more concern in mobile than elsewhere).</p></div><section id="markup"><h3><span class="secno">4.1 </span>  Markup</h3><table>
+<thead>
+  <tr><th>Category</th><th>Specification</th><th>Status</th><th>Requirements Addressed
+</th></tr></thead>
+<tbody>
+  <tr><th rowspan="4">General</th><td>HTML5 [<cite><a class="bibref" href="#bib-HTML5">HTML5</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-offline" class="reqRef">Req. 6</a>,
+    <a href="#req-history" class="reqRef">Req. 7</a>,
+    <a href="#req-audio-playback" class="reqRef">Req. 19</a>,
+    <a href="#req-video-playback" class="reqRef">Req. 20</a>
+  </td></tr><tr><td>HTML Media Capture [<cite><a class="bibref" href="#bib-HTMLMEDIACAPTURE">HTMLMEDIACAPTURE</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-camera-access" class="reqRef">Req. 15</a>,
+    <a href="#req-microphone-access" class="reqRef">Req. 16</a>
+  </td></tr><tr><td>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [<cite><a class="bibref" href="#bib-SVG11">SVG11</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-responsive" class="reqRef">Req. 3</a>
+  </td></tr><tr><td>CSS Device Adaptation [<cite><a class="bibref" href="#bib-CSS-ADAPTATION">CSS-ADAPTATION</a></cite>] (as specified through a <code>meta</code> viewport element)</td><td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr></td><td>
+    <a href="#req-mobile-specific" class="reqRef">Req. 2</a>,
+    <a href="#req-responsive" class="reqRef">Req. 3</a>.
+</td></tr></tbody>
+</table></section><section id="style"><h3><span class="secno">4.2 </span>  Style</h3><table></table><table>
+<thead>
+  <tr><th>Category</th><th>Specification</th><th>Status</th><th>Requirements Addressed
+</th></tr></thead>
+<tbody>
+  <tr><th>General</th><td>CSS 2.1 [<cite><a class="bibref" href="#bib-CSS21">CSS21</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td><a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><th rowspan="3">Processing
+  </th><td>CSS Values [<cite><a class="bibref" href="#bib-CSS3VAL">CSS3VAL</a></cite>] <sup id="fn1-ref"><a href="#fn1">1</a></sup></td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>CSS Media Queries [<cite><a class="bibref" href="#bib-CSS3-MEDIAQUERIES">CSS3-MEDIAQUERIES</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-mobile-specific" class="reqRef">Req. 2</a>,
+    <a href="#req-responsive" class="reqRef">Req. 3</a>
+  </td></tr><tr><td>CSS Selectors Level 3 [<cite><a class="bibref" href="#bib-SELECT">SELECT</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><th rowspan="3">Graphical
+  </th><td>CSS Backgrounds and Borders [<cite><a class="bibref" href="#bib-CSS3-BG">CSS3-BG</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>CSS Color [<cite><a class="bibref" href="#bib-CSS3COLOR">CSS3COLOR</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>CSS Image Values and Replaced Content [<cite><a class="bibref" href="#bib-CSS3-IMAGES">CSS3-IMAGES</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><th rowspan="2">Layout
+  </th><td>CSS Flexible Box Layout [<cite><a class="bibref" href="#bib-FLEXBOX">FLEXBOX</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-app-look" class="reqRef">Req. 8</a>
+  </td></tr><tr><td>CSS Transforms [<cite><a class="bibref" href="#bib-CSS3-TRANSFORMS">CSS3-TRANSFORMS</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><th rowspan="3">Typography
+  </th><td>CSS Fonts [<cite><a class="bibref" href="#bib-CSS3-FONTS">CSS3-FONTS</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-responsive" class="reqRef">Req. 3</a>,
+    <a href="#req-rich-fonts" class="reqRef">Req. 4</a>
+  </td></tr><tr><td><abbr title="Web Open Font Format">WOFF</abbr> [<cite><a class="bibref" href="#bib-WOFF">WOFF</a></cite>]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr></td><td>
+    <a href="#req-responsive" class="reqRef">Req. 3</a>,
+    <a href="#req-rich-fonts" class="reqRef">Req. 4</a>
+  </td></tr><tr><td>CSS Text [<cite><a class="bibref" href="#bib-CSS3TEXT">CSS3TEXT</a></cite>] <sup id="fn2-ref"><a href="#fn2">2</a></sup></td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-rich-fonts" class="reqRef">Req. 4</a>
+  </td></tr><tr><th rowspan="2">Animations and Transitions
+  </th><td>CSS Animations [<cite><a class="bibref" href="#bib-CSS3-ANIMATIONS">CSS3-ANIMATIONS</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>CSS Transitions [<cite><a class="bibref" href="#bib-CSS3-TRANSITIONS">CSS3-TRANSITIONS</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-app-feel" class="reqRef">Req. 9</a>
+</td></tr></tbody>
+</table><p><small id="fn1">1. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably <code>calc()</code>, <code>rem</code> unit, but also some that don't seem to have a lot of traction (e.g. <code>toggle()</code>). <a href="#fn1-ref">↩</a></small></p><p><small id="fn2">2. The requirements are only for a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1. <a href="#fn2-ref">↩</a></small></p></section><section id="scripting"><h3><span class="secno">4.3 </span>  Scripting</h3><table>
+<thead>
+  <tr><th>Category</th><th>Specification</th><th>Status</th><th>Requirements Addressed
+</th></tr></thead>
+
+ <tbody>
+  <tr><th>General</th><td>ECMAScript, Edition 5.1 [<cite><a class="bibref" href="#bib-ECMA-262-51">ECMA-262-51</a></cite>]</td><td class="ext">N/A</td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><th rowspan="7">DOM
+      </th><td>DOM4 API [<cite><a class="bibref" href="#bib-DOM4">DOM4</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>DOM Level 3 Events [<cite><a class="bibref" href="#bib-DOM-LEVEL-3-EVENTS">DOM-LEVEL-3-EVENTS</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>Progress Events [<cite><a class="bibref" href="#bib-PROGRESS-EVENTS">PROGRESS-EVENTS</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>Selectors API Level 1 [<cite><a class="bibref" href="#bib-SELECTORS-API">SELECTORS-API</a></cite>]</td><td class="pr"><abbr title="Proposed Recommendation">PR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>Touch Events version 1 [<cite><a class="bibref" href="#bib-TOUCH-EVENTS">TOUCH-EVENTS</a></cite>]</td><td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr></td><td>
+    <a href="#req-mobile-specific" class="reqRef">Req. 2</a>
+  </td></tr><tr><td>CSSOM [<cite><a class="bibref" href="#bib-CSSOM">CSSOM</a></cite>]</td><td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>CSSOM View [<cite><a class="bibref" href="#bib-CSSOM-VIEW">CSSOM-VIEW</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-mobile-specific" class="reqRef">Req. 2</a>
+  </td></tr><tr><th rowspan="4">Storage
+      </th><td>Web Storage API [<cite><a class="bibref" href="#bib-WEBSTORAGE">WEBSTORAGE</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>Indexed Database API [<cite><a class="bibref" href="#bib-INDEXEDDB">INDEXEDDB</a></cite>]</td><td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr></td><td>
+    <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+    <a href="#req-data-storage" class="reqRef">Req. 14</a>
+  </td></tr><tr><td>File API [<cite><a class="bibref" href="#bib-FILE-API">FILE-API</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-camera-access" class="reqRef">Req. 15</a>,
+    <a href="#req-microphone-access" class="reqRef">Req. 16</a>,
+    <a href="#req-pic-manipulation" class="reqRef">Req. 17</a>,
+    <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+    <a href="#req-file-upload" class="reqRef">Req. 23</a>
+  </td></tr><tr><td>Quota Management API [<cite><a class="bibref" href="#bib-QUOTA-API">QUOTA-API</a></cite>]</td><td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr></td><td>
+    <a href="#req-offline" class="reqRef">Req. 6</a>,
+    <a href="#req-file-storage" class="reqRef">Req. 13</a>,
+    <a href="#req-data-storage" class="reqRef">Req. 14</a>
+  </td></tr><tr><th rowspan="3">Networking
+      </th><td>XMLHttpRequest API [<cite><a class="bibref" href="#bib-XMLHTTPREQUEST">XMLHTTPREQUEST</a></cite>]</td><td class="wd"><abbr title="Working Draft">WD</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-file-upload" class="reqRef">Req. 23</a>
+  </td></tr><tr><td>Web Messaging API [<cite><a class="bibref" href="#bib-POSTMSG">POSTMSG</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>
+    <a href="#req-file-upload" class="reqRef">Req. 23</a>
+  </td></tr><tr><td>Web Workers API [<cite><a class="bibref" href="#bib-WEBWORKERS">WEBWORKERS</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+    <a href="#req-file-upload" class="reqRef">Req. 23</a>
+  </td></tr><tr><th rowspan="2">Sensors
+      </th><td>Geolocation API [<cite><a class="bibref" href="#bib-GEOLOCATION-API">GEOLOCATION-API</a></cite>]</td><td class="pr"><abbr title="Proposed Recommendation">PR</abbr></td><td>
+    <a href="#req-geolocation" class="reqRef">Req. 22</a>
+  </td></tr><tr><td>DeviceOrientation Event [<cite><a class="bibref" href="#bib-DEVICE-ORIENTATION">DEVICE-ORIENTATION</a></cite>]</td><td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr></td><td>
+    <a href="#req-position" class="reqRef">Req. 21</a>
+  </td></tr><tr><th rowspan="2">Multimedia
+      </th><td>Canvas2D API [<cite><a class="bibref" href="#bib-CANVAS-2D">CANVAS-2D</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td>
+    <a href="#req-pic-manipulation" class="reqRef">Req. 17</a>,
+    <a href="#req-framerate" class="reqRef">Req. 18</a>
+  </td></tr><tr><td>Timing control for script-based animations API [<cite><a class="bibref" href="#bib-ANIMATION-TIMING">ANIMATION-TIMING</a></cite>]</td><td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr></td><td>
+    <a href="#req-framerate" class="reqRef">Req. 18</a>
+</td></tr></tbody>
+</table></section><section id="network"><h3><span class="secno">4.4 </span>  Network</h3><table>
+<thead>
+  <tr><th>Category</th><th>Specification</th><th>Status</th><th>Requirements Addressed
+</th></tr></thead>
+<tbody>
+  <tr><th rowspan="8">General
+    </th><td>HTTP 1.1 [<cite><a class="bibref" href="#bib-HTTP11">HTTP11</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>The Web Origin Concept [<cite><a class="bibref" href="#bib-ORIGIN">ORIGIN</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>Cross-Origin Resource Sharing [<cite><a class="bibref" href="#bib-CORS">CORS</a></cite>]</td><td class="cr"><abbr title="Candidate Recommendation">CR</abbr></td><td><a href="#req-file-upload" class="reqRef">Req. 23</a>
+  </td></tr><tr><td>The <code>data:</code> URI scheme [<cite><a class="bibref" href="#bib-RFC2397">RFC2397</a></cite>]</td><td class="ext">N/A</td><td>  <a href="#req-interoperability" class="reqRef">Req. 1</a>
+  </td></tr><tr><td>The <code>mailto:</code> URI scheme [<cite><a class="bibref" href="#bib-RFC6068">RFC6068</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-url-schemes" class="reqRef">Req. 24</a>
+  </td></tr><tr><td>The <code>tel:</code> URI scheme [<cite><a class="bibref" href="#bib-RFC3966">RFC3966</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-url-schemes" class="reqRef">Req. 24</a>
+  </td></tr><tr><td>The <code>sms:</code> URI scheme [<cite><a class="bibref" href="#bib-RFC5724">RFC5724</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-url-schemes" class="reqRef">Req. 24</a>
+  </td></tr><tr><td>The <code>mmsto:</code> URI scheme [<cite><a class="bibref" href="#bib-OMA-URI-SCHEMES">OMA-URI-SCHEMES</a></cite>]</td><td class="ext">N/A</td><td><a href="#req-url-schemes" class="reqRef">Req. 24</a>
+</td></tr></tbody>
+</table></section></section><section id="requirements-only-partially-addressed-by-existing-specifications"><!--OddPage--><h2><span class="secno">5. </span>  Requirements only partially addressed by existing specifications</h2><p>  The following requirements are only partially addressed by existing specifications: <a href="#req-interoperability" class="reqRef">Req. 1</a>,
+  <a href="#req-mobile-specific" class="reqRef">Req. 2</a>,
+  <a href="#req-responsive" class="reqRef">Req. 3</a>,
+  <a href="#req-meta-data" class="reqRef">Req. 5</a>,
+  <a href="#req-offline" class="reqRef">Req. 6</a>, and
+  <a href="#req-orientation-lock" class="reqRef">Req. 11</a>.
+
+</p><p>  There is ongoing work to address each of those requirements within W3C as detailed below. The CG encourages these efforts.
+
+</p><section id="pointer-events"><h3><span class="secno">5.1 </span>  Pointer events</h3><p>  While <a href="#req-interoperability" class="reqRef">Req. 1</a> and <a href="#req-mobile-specific" class="reqRef">Req. 2</a> are generally addressed by a number of existing specifications, there is one area which is still problematic - user input. Touch-enabled devices delay click inputs (presumably to handle long and double taps). While there are some <a href="https://developers.google.com/mobile/articles/fast_buttons">different</a> <a href="https://github.com/ftlabs/fastclick">solutions</a> that remove the delay, developers tend to rely instead on touch events [<cite><a class="bibref" href="#bib-TOUCH-EVENTS">TOUCH-EVENTS</a></cite>]. In turn, this creates content which doesn't work properly when used with a different kind of input mechanism. In order to address this situation, the <a href="http://www.w3.org/2012/pointerevents/">Pointer Event WG</a> was formed and has published a first Working Draft [<cite><a class="bibref" href="#bib-POINTER-EVENTS">POINTER-EVENTS</a></cite>].
+
+</p></section><section id="responsive-images"><h3><span class="secno">5.2 </span>  Responsive Images</h3><p>  While a lot has been done to address <a href="#req-responsive" class="reqRef">Req. 3</a>, notably through media queries, there is no set solution for responsive images to date. The <a href="http://www.w3.org/community/respimg/">Responsive Images CG</a> has made a proposal (<a href="http://picture.responsiveimages.org/">The picture element</a>), and so has the HTML WG (<a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/Overview.html">The srcset attribute</a>). The HTML WG is set to determine the merit of both solutions and examine whether they should be combined.
+
+</p></section><section id="application-meta-data"><h3><span class="secno">5.3 </span>  Application meta-data</h3><p>  The multitude of existing formats to describe application meta-data (<a href="#req-meta-data" class="reqRef">Req. 5</a>) have been <a href="http://www.brucelawson.co.uk/2011/installable-web-apps-and-interoperability/">listed</a> <a href="http://blog.tobie.me/post/14262541286/app-manifests-an-anthology">elsewhere</a> already. The WebApps WG is <a href="http://www.w3.org/2012/webapps/charter/Overview.html#deliverables">chartered</a> to work on this and has two related specs: Widget Packaging and Configuration [<cite><a class="bibref" href="#bib-WIDGETS">WIDGETS</a></cite>] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [<cite><a class="bibref" href="#bib-WEBAPPS-MANIFEST-API">WEBAPPS-MANIFEST-API</a></cite>] (which is still an early Editor's draft). Additionally, the combination of a number of [<cite><a class="bibref" href="#bib-HTML5">HTML5</a></cite>] features, such as the <code>title</code> element, <code>meta</code> application-name element and <code>link</code> icons element provides similar capabilities, yet this solution lacks sufficient comprehensiveness and cohesiveness to meet the requirements.
+
+</p></section><section id="offline"><h3><span class="secno">5.4 </span>  Offline</h3><p>  Currently, Application Cache is the only Web technology designed to address <a href="#req-offline" class="reqRef">Req. 6</a>. Its issues have already been <a href="http://www.w3.org/2011/web-apps-ws/Report">exhaustively</a> <a href="https://etherpad.mozilla.org/appcache-london">documented</a> <a href="https://etherpad.mozilla.org/appcache">elsewhere</a>. This technology is very complex, poorly understood, and hard to use. It is also <a href="http://www.w3.org/TR/html5/#status-of-this-document">marked at risk</a> in the HTML5 specification.
+
+</p><p>  Recently, the <a href="http://www.w3.org/2012/10/30-webapps-minutes.html#item06">WebApps WG has decided to take over this work</a> with the blessing of the HTML WG. In parallel, the <a href="http://www.w3.org/community/fixing-appcache/">Fixing Application Cache CG</a> is collecting case studies, use cases and requirements.
+
+</p></section><section id="screen-orientation"><h3><span class="secno">5.5 </span>  Screen Orientation</h3><p>  A specification to fulfill <a href="#req-orientation-lock" class="reqRef">Req. 11</a> is a deliverable of the WebApps WG. A first public Working Draft [<cite><a class="bibref" href="#bib-SCREEN-ORIENTATION">SCREEN-ORIENTATION</a></cite>] was recently published by the WG. The CG applauds this effort and encourages the WG to explore other solutions such as a JavaScript API for [<cite><a class="bibref" href="#bib-CSS-ADAPTATION">CSS-ADAPTATION</a></cite>] which already has an <code>orientation</code> property.
+
+
+</p></section></section><section id="unaddressed-requirements"><!--OddPage--><h2><span class="secno">6. </span>  Unaddressed requirements</h2><p>  The following requirements aren't addressed by existing specifications: <a href="#req-fast-scroll" class="reqRef">Req. 10</a>, and <a href="#req-fullscreen" class="reqRef">Req. 12</a>.
+
+</p><p>  However, there is early work going on to address some of these.
+
+</p><section id="momentum-and-infinite-scrolling"><h3><span class="secno">6.1 </span>  Momentum and infinite scrolling</h3><p>  Smooth and stutter-free scrolling is first and foremost a QoI issue. However, the requirements (maintaining 60fps while possibly altering the DOM) are sufficiently taxing that they are difficult to meet on mobile devices, even on high-end ones. Some <a href="http://fremycompany.com/TR/2012/ED-css-viewport/">very recent work</a> attempts to cater to this issue.
+
+</p></section><section id="chromeless-mode"><h3><span class="secno">6.2 </span>  Chromeless Mode</h3><p>  While within the scope of the WebApps WG's <a href="http://www.w3.org/2012/webapps/charter/">charter</a>, no work that would address <a href="#req-fullscreen" class="reqRef">Req. 12</a> is currently ongoing.
+
+
+</p></section></section><section id="quality-of-implementation"><!--OddPage--><h2><span class="secno">7. </span>  Quality of Implementation</h2><p>  The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
+
+</p><p>  The group's work to date has yielded the following particular points of note:
+
+</p><section id="qoi-of-the-audio-element"><h3><span class="secno">7.1 </span>  QoI of the <code>audio</code> element</h3><p>  Implementors should pay particular attention to the quality of implementation of the <code>audio</code> element. <code>audio</code> elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.
+
+</p></section><section id="performance-of-the-canvas-element"><h3><span class="secno">7.2 </span>  Performance of the <code>canvas</code> element</h3><p>  Implementors should pay attention to the performance characteristics of the <code>canvas</code> element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.
+
+</p></section><section id="performance-of-scrolling-transitions-and-animations"><h3><span class="secno">7.3 </span>  Performance of scrolling, transitions, and animations</h3><p>  Smooth scrolling, transitions, and animations are key to delivering great user experiences. Implementations should aim to render these at 60fps.
+
+</p></section><section id="dedicated-form-controls"><h3><span class="secno">7.4 </span>  Dedicated form controls</h3><p>  On mobile devices content input is often tedious. Implementors should therefore implement dedicated form controls where appropriate (for example, displaying a numerical keypad for inputs of type <code>tel</code>).
+
+</p></section></section><section id="conformance"><!--OddPage--><h2><span class="secno">8. </span>  Conformance</h2><p>This document does not express any conformance requirements. Conformance to this document would consist of conforming to the technology standards it identifies, however, some of the technology standards it identifies have not advanced to a sufficient state of maturity to be capable of having conformance requirements.
+
+</p></section><section class="appendix" id="acknowledgements"><!--OddPage--><h2><span class="secno">A. </span>Acknowledgements</h2><p>The editors thank Lars Erik Bolstad, Giridhar Mandyam, and Marcos Cáceres for their help collecting use case and requirements.
+
+</p><p>The editors thank Matt Kelly for initiating and driving the research on the requirements of top native applications, and also thank WonSuk Lee and Ming Jin and others who contributed to it.
+
+</p><p>The editors thank <a href="http://www.w3.org/community/coremob/participants">all members</a> of the Coremob CG for contributions of various kinds.
+</p></section><section id="references" class="appendix"><!--OddPage--><h2><span class="secno">B. </span>References</h2><section id="informative-references"><h3><span class="secno">B.1 </span>Informative references</h3><dl class="bibliography"><dt id="bib-ANIMATION-TIMING">[ANIMATION-TIMING]</dt><dd>James Robinson; Cameron McCormack. <a href="http://www.w3.org/TR/2012/WD-animation-timing-20120221"><cite>Timing control for script-based animations.</cite></a> 21 February 2012. LCWD. URL: <a href="http://www.w3.org/TR/2012/WD-animation-timing-20120221">http://www.w3.org/TR/2012/WD-animation-timing-20120221</a>
+</dd><dt id="bib-CANVAS-2D">[CANVAS-2D]</dt><dd>Rik Cabanier; Eliot Graff; Jay Munro; Tom Wiltzius; Ian Hickson. <a href="http://www.w3.org/TR/2012/CR-2dcontext-20121217"><cite>HTML Canvas 2D Context.</cite></a> 17 December 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-2dcontext-20121217">http://www.w3.org/TR/2012/CR-2dcontext-20121217</a>
+</dd><dt id="bib-CORS">[CORS]</dt><dd>Anne van Kesteren. <a href="http://www.w3.org/TR/2013/CR-cors-20130129"><cite>Cross-Origin Resource Sharing.</cite></a> 29 January 2013. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2013/CR-cors-20130129">http://www.w3.org/TR/2013/CR-cors-20130129</a>
+</dd><dt id="bib-CSS-ADAPTATION">[CSS-ADAPTATION]</dt><dd>Rune Lillesveen. <a href="http://www.w3.org/TR/2011/WD-css-device-adapt-20110915"><cite>CSS Device Adaptation.</cite></a> 15 September 2011. W3C First Public Working Draft. URL: <a href="http://www.w3.org/TR/2011/WD-css-device-adapt-20110915">http://www.w3.org/TR/2011/WD-css-device-adapt-20110915</a>
+</dd><dt id="bib-CSS21">[CSS21]</dt><dd>Bert Bos et al. <a href="http://www.w3.org/TR/CSS21/"><cite>Cascading Style Sheets, level 2 (CSS2) Specification.</cite></a> 07 June 2011. W3C Recommendation. URL: <a href="http://www.w3.org/TR/CSS21/">http://www.w3.org/TR/CSS21/</a>
+</dd><dt id="bib-CSS3-ANIMATIONS">[CSS3-ANIMATIONS]</dt><dd>Dean Jackson; David Hyatt; Chris Marrin; Sylvain Galineau; L. David Baron. <a href="http://www.w3.org/TR/2012/WD-css3-animations-20120403"><cite>CSS Animations.</cite></a> 03 April 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-css3-animations-20120403">http://www.w3.org/TR/2012/WD-css3-animations-20120403</a>
+</dd><dt id="bib-CSS3-BG">[CSS3-BG]</dt><dd>Bert Bos; Elika J. Etemad; Brad Kemper. <a href="http://www.w3.org/TR/2012/CR-css3-background-20120724/"><cite>CSS Backgrounds and Borders Module Level 3.</cite></a> 24 July 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-css3-background-20120724/">http://www.w3.org/TR/2012/CR-css3-background-20120724/</a>
+</dd><dt id="bib-CSS3-FONTS">[CSS3-FONTS]</dt><dd>John Daggett. <a href="http://www.w3.org/TR/2012/WD-css3-fonts-20121211"><cite>CSS Fonts Module Level 3.</cite></a> 11 December 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-css3-fonts-20121211">http://www.w3.org/TR/2012/WD-css3-fonts-20121211</a>
+</dd><dt id="bib-CSS3-IMAGES">[CSS3-IMAGES]</dt><dd>Elika J. Etemad; Tab Atkins Jr.. <a href="http://www.w3.org/TR/2012/CR-css3-images-20120417"><cite>CSS Image Values and Replaced Content</cite></a> 17 April 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-css3-images-20120417">http://www.w3.org/TR/2012/CR-css3-images-20120417</a>
+</dd><dt id="bib-CSS3-MEDIAQUERIES">[CSS3-MEDIAQUERIES]</dt><dd>Håkon Wium Lie; Tantek Çelik; Daniel Glazman; Anne van Kesteren. <a href="http://www.w3.org/TR/css3-mediaqueries"><cite>Media Queries.</cite></a> 19 June 2012. W3C Recommendation. URL: <a href="http://www.w3.org/TR/css3-mediaqueries">http://www.w3.org/TR/css3-mediaqueries</a>
+</dd><dt id="bib-CSS3-TRANSFORMS">[CSS3-TRANSFORMS]</dt><dd>Simon Fraser; Dean Jackson; David Hyatt; Chris Marrin; Edward O'Connor; Dirk Schulze; Aryeh Gregor. <a href="http://www.w3.org/TR/2012/WD-css3-transforms-20120911"><cite>CSS Transforms.</cite></a> 11 September 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-css3-transforms-20120911">http://www.w3.org/TR/2012/WD-css3-transforms-20120911</a>
+</dd><dt id="bib-CSS3-TRANSITIONS">[CSS3-TRANSITIONS]</dt><dd>Dean Jackson; David Hyatt; Chris Marrin; L. David Baron. <a href="http://www.w3.org/TR/2012/WD-css3-transitions-20120403/"><cite>CSS Transitions.</cite></a> 03 April 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-css3-transitions-20120403/">http://www.w3.org/TR/2012/WD-css3-transitions-20120403/</a>
+</dd><dt id="bib-CSS3COLOR">[CSS3COLOR]</dt><dd>Tantek Çelik; Chris Lilley; L. David Baron. <a href="http://www.w3.org/TR/css3-color"><cite>CSS Color Module Level 3.</cite></a> 07 June 2011. W3C Recommendation. URL: <a href="http://www.w3.org/TR/css3-color">http://www.w3.org/TR/css3-color</a>
+</dd><dt id="bib-CSS3TEXT">[CSS3TEXT]</dt><dd>Elika J. Etemad; Koji Ishii. <a href="http://www.w3.org/TR/2012/WD-css3-text-20121113"><cite>CSS Text Module Level 3.</cite></a> 13 November 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-css3-text-20121113">http://www.w3.org/TR/2012/WD-css3-text-20121113</a>
+</dd><dt id="bib-CSS3VAL">[CSS3VAL]</dt><dd>Håkon Wium Lie; Tab Atkin; Elika J. Etemad. <a href="http://www.w3.org/TR/2012/CR-css3-values-20120828/"><cite>CSS3 Values and Units.</cite></a> 28 August 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-css3-values-20120828/">http://www.w3.org/TR/2012/CR-css3-values-20120828/</a>
+</dd><dt id="bib-CSSOM">[CSSOM]</dt><dd>Anne van Kesteren. <a href="http://www.w3.org/TR/2011/WD-cssom-20110712"><cite>CSSOM.</cite></a> 12 July 2011. W3C First Public Working Draft. URL: <a href="http://www.w3.org/TR/2011/WD-cssom-20110712">http://www.w3.org/TR/2011/WD-cssom-20110712</a>
+</dd><dt id="bib-CSSOM-VIEW">[CSSOM-VIEW]</dt><dd>Anne van Kesteren. <a href="http://www.w3.org/TR/2011/WD-cssom-view-20110804"><cite>CSSOM View Module.</cite></a> 4 August 2011. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2011/WD-cssom-view-20110804">http://www.w3.org/TR/2011/WD-cssom-view-20110804</a>
+</dd><dt id="bib-DEVICE-ORIENTATION">[DEVICE-ORIENTATION]</dt><dd>Steve Block; Andrei Popescu. <a href="http://www.w3.org/TR/2011/WD-orientation-event-20111201"><cite>DeviceOrientation Event Specification.</cite></a> 1 December 2011. LCWD. URL: <a href="http://www.w3.org/TR/2011/WD-orientation-event-20111201">http://www.w3.org/TR/2011/WD-orientation-event-20111201</a>
+</dd><dt id="bib-DOM-LEVEL-3-EVENTS">[DOM-LEVEL-3-EVENTS]</dt><dd>Travis Leithead; Jacob Rossi; Doug Schepers; Björn Höhrmann; Philippe Le Hégaret; Tom Pixley. <a href="http://www.w3.org/TR/2012/WD-DOM-Level-3-Events-20120906"><cite>Document Object Model (DOM) Level 3 Events Specification.</cite></a> 06 September 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-DOM-Level-3-Events-20120906">http://www.w3.org/TR/2012/WD-DOM-Level-3-Events-20120906</a>
+</dd><dt id="bib-DOM4">[DOM4]</dt><dd>Anne van Kesteren; Aryeh Gregor; Lachlan Hunt; Ms2ger. <a href="http://www.w3.org/TR/2012/WD-dom-20121206"><cite>DOM4.</cite></a> 6 December 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-dom-20121206">http://www.w3.org/TR/2012/WD-dom-20121206</a>
+</dd><dt id="bib-ECMA-262-51">[ECMA-262-51]</dt><dd><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript Language Specification, Edition 5.1</a>. June 2011. URL: <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">http://www.ecma-international.org/publications/standards/Ecma-262.htm</a>
+</dd><dt id="bib-FILE-API">[FILE-API]</dt><dd>Arun Ranganathan; Jonas Sicking. <a href="http://www.w3.org/TR/2012/WD-FileAPI-20121025"><cite>File API.</cite></a> 25 October 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-FileAPI-20121025">http://www.w3.org/TR/2012/WD-FileAPI-20121025</a>
+</dd><dt id="bib-FLEXBOX">[FLEXBOX]</dt><dd>Tab Atkins Jr; Elika J. Etemad; Alex Mogilevsky. <a href="http://www.w3.org/TR/2012/CR-css3-flexbox-20120918"><cite>CSS Flexible Box Layout Module.</cite></a> 18 September 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-css3-flexbox-20120918">http://www.w3.org/TR/2012/CR-css3-flexbox-20120918</a>
+</dd><dt id="bib-GEOLOCATION-API">[GEOLOCATION-API]</dt><dd>Andrei Popescu. <a href="http://www.w3.org/TR/2012/PR-geolocation-API-20120510"><cite>Geolocation API Specification.</cite></a> 10 May 2012. W3C Proposed Recommendation. URL: <a href="http://www.w3.org/TR/2012/PR-geolocation-API-20120510">http://www.w3.org/TR/2012/PR-geolocation-API-20120510</a>
+</dd><dt id="bib-HTML5">[HTML5]</dt><dd>Robin Berjon et al. <a href="http://www.w3.org/TR/html5/"><cite>HTML5.</cite></a> 17 December 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/html5/">http://www.w3.org/TR/html5/</a>
+</dd><dt id="bib-HTMLMEDIACAPTURE">[HTMLMEDIACAPTURE]</dt><dd>Anssi Kostiainen; Ilkka Oksanen; Dominique Hazaël-Massieux. <a href="http://www.w3.org/TR/2012/WD-html-media-capture-20120529/"><cite>HTML Media Capture.</cite></a> 29 May 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-html-media-capture-20120529/">http://www.w3.org/TR/2012/WD-html-media-capture-20120529/</a>
+</dd><dt id="bib-HTTP11">[HTTP11]</dt><dd>R. Fielding et al. <a href="http://www.ietf.org/rfc/rfc2616.txt"><cite>Hypertext Transfer Protocol - HTTP/1.1.</cite></a> June 1999. RFC 2616. URL: <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a>
+</dd><dt id="bib-INDEXEDDB">[INDEXEDDB]</dt><dd>Nikunj Mehta; Jonas Sicking; Eliot Graff; Andrei Popescu; Jeremy Orlow. <a href="http://www.w3.org/TR/2012/WD-IndexedDB-20120524/"><cite>Indexed Database API.</cite></a> 24 May 2012. LCWD. URL: <a href="http://www.w3.org/TR/2012/WD-IndexedDB-20120524/">http://www.w3.org/TR/2012/WD-IndexedDB-20120524/</a>
+</dd><dt id="bib-OMA-URI-SCHEMES">[OMA-URI-SCHEMES]</dt><dd><a href="http://www.openmobilealliance.org/Technical/release_program/docs/URI_Schemes/V1_0-20080626-A/OMA-TS-URI_Schemes-V1_0-20080626-A.pdf"><cite>URI Schemes for the Mobile Applications Environment. Approved Version 1.0</cite></a> 26 Jun 2008. URL: <a href="http://www.openmobilealliance.org/Technical/release_program/docs/URI_Schemes/V1_0-20080626-A/OMA-TS-URI_Schemes-V1_0-20080626-A.pdf">http://www.openmobilealliance.org/Technical/release_program/docs/URI_Schemes/V1_0-20080626-A/OMA-TS-URI_Schemes-V1_0-20080626-A.pdf</a> 
+</dd><dt id="bib-ORIGIN">[ORIGIN]</dt><dd>A. Barth. <a href="http://tools.ietf.org/html/rfc6454"><cite>The Web Origin Concept.</cite></a> December 2011. RFC 6454. URL: <a href="http://tools.ietf.org/html/rfc6454">http://tools.ietf.org/html/rfc6454</a>
+</dd><dt id="bib-POINTER-EVENTS">[POINTER-EVENTS]</dt><dd>Jacob Rossi; Matt Brubeck. <a href="http://www.w3.org/TR/2013/WD-pointerevents-20130115"><cite>Pointer Events.</cite></a> 15 January 2013. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2013/WD-pointerevents-20130115">http://www.w3.org/TR/2013/WD-pointerevents-20130115</a>
+</dd><dt id="bib-POSTMSG">[POSTMSG]</dt><dd>Ian Hickson. <a href="http://www.w3.org/TR/2012/CR-webmessaging-20120501"><cite>HTML5 Web Messaging</cite></a>  01 May 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-webmessaging-20120501">http://www.w3.org/TR/2012/CR-webmessaging-20120501</a>
+</dd><dt id="bib-PROGRESS-EVENTS">[PROGRESS-EVENTS]</dt><dd>Anne van Kesteren. <a href="http://www.w3.org/TR/2011/CR-progress-events-20110922"><cite>Progress Events.</cite></a> 22 September 2011. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2011/CR-progress-events-20110922">http://www.w3.org/TR/2011/CR-progress-events-20110922</a>
+</dd><dt id="bib-QUOTA-API">[QUOTA-API]</dt><dd>Kinuko Yasuda. <a href="http://www.w3.org/TR/2012/WD-quota-api-20120703"><cite>Quota Management API</cite></a> 03 July 2012. W3C First Public Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-quota-api-20120703">http://www.w3.org/TR/2012/WD-quota-api-20120703</a>
+</dd><dt id="bib-RFC2397">[RFC2397]</dt><dd>L. Masinter. <a href="http://www.ietf.org/rfc/rfc2397.txt"><cite>The "data" URL scheme.</cite></a> August 1998. RFC 2397. URL: <a href="http://www.ietf.org/rfc/rfc2397.txt">http://www.ietf.org/rfc/rfc2397.txt</a>
+</dd><dt id="bib-RFC3966">[RFC3966]</dt><dd>H. Schulzrinne. <a href="http://www.ietf.org/rfc/rfc3966.txt"><cite>The tel URI for Telephone Numbers</cite></a> December 2004. RFC 3966. URL: <a href="http://www.ietf.org/rfc/rfc3966.txt">http://www.ietf.org/rfc/rfc3966.txt</a>
+</dd><dt id="bib-RFC5724">[RFC5724]</dt><dd>E. Wilde, A. Vaha-Sipila. <a href="http://www.ietf.org/rfc/rfc5724.txt">URI Scheme for Global System for Mobile Communications (GSM) Short Message Service (SMS)</a>. January 2010. Request for Comments. URL: <a href="http://www.ietf.org/rfc/rfc5724.txt">http://www.ietf.org/rfc/rfc5724.txt</a>
+</dd><dt id="bib-RFC6068">[RFC6068]</dt><dd>M. Duerst; L. Masinter; J. Zawinski. <a href="http://www.ietf.org/rfc/rfc6068.txt"><cite>The 'mailto' URI Scheme.</cite></a> October 2010. Internet Proposed Standard RFC 6068. URL: <a href="http://www.ietf.org/rfc/rfc6068.txt">http://www.ietf.org/rfc/rfc6068.txt</a>
+</dd><dt id="bib-SCREEN-ORIENTATION">[SCREEN-ORIENTATION]</dt><dd>Mounir Lamouri. <a href="http://www.w3.org/TR/2012/WD-screen-orientation-20121206"><cite>The Screen Orientation API.</cite></a> 06 December 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-screen-orientation-20121206">http://www.w3.org/TR/2012/WD-screen-orientation-20121206</a>
+</dd><dt id="bib-SELECT">[SELECT]</dt><dd>Tantek Çelik; Elika J. Etemad; Daniel Glazman; Ian Hickson et al. <a href="http://www.w3.org/TR/css3-selectors/"><cite>Selectors Level 3.</cite></a> 29 September 2011. W3C Recommendation. URL: <a href="http://www.w3.org/TR/css3-selectors/">http://www.w3.org/TR/css3-selectors/</a>
+</dd><dt id="bib-SELECTORS-API">[SELECTORS-API]</dt><dd>Lachlan Hunt; Anne van Kesteren. <a href="http://www.w3.org/TR/2012/PR-selectors-api-20121213"><cite>Selectors API Level 1.</cite></a> 13 December 2012. W3C Proposed Recommendation. URL: <a href="http://www.w3.org/TR/2012/PR-selectors-api-20121213">http://www.w3.org/TR/2012/PR-selectors-api-20121213</a>
+</dd><dt id="bib-SVG11">[SVG11]</dt><dd>Erik Dahlström et al. <a href="http://www.w3.org/TR/2011/REC-SVG11-20110816/"><cite>Scalable Vector Graphics (SVG) 1.1 (Second Edition).</cite></a> 16 August 2011. W3C Recommendation. URL: <a href="http://www.w3.org/TR/2011/REC-SVG11-20110816/">http://www.w3.org/TR/2011/REC-SVG11-20110816/</a>
+</dd><dt id="bib-TOUCH-EVENTS">[TOUCH-EVENTS]</dt><dd>Doug Schepers; Sangwhan Moon; Matt Brubeck. <a href="http://www.w3.org/TR/2013/WD-touch-events-20130124"><cite>Touch Events version 1.</cite></a> 24 January 2013. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2013/WD-touch-events-20130124">http://www.w3.org/TR/2013/WD-touch-events-20130124</a>
+</dd><dt id="bib-WEBAPPS-MANIFEST-API">[WEBAPPS-MANIFEST-API]</dt><dd>Anant Narayanan. <a href="https://dvcs.w3.org/hg/app-manifest/raw-file/tip/index.html"><cite>Web Application Manifest Format and Management APIs.</cite></a> 30 January 2013. W3C Editor's Draft. URL: <a href="https://dvcs.w3.org/hg/app-manifest/raw-file/tip/index.html">https://dvcs.w3.org/hg/app-manifest/raw-file/tip/index.html</a>
+</dd><dt id="bib-WEBSTORAGE">[WEBSTORAGE]</dt><dd>Ian Hickson. <a href="http://www.w3.org/TR/2011/CR-webstorage-20111208"><cite>Web Storage.</cite></a> 08 December 2011. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2011/CR-webstorage-20111208">http://www.w3.org/TR/2011/CR-webstorage-20111208</a>
+</dd><dt id="bib-WEBWORKERS">[WEBWORKERS]</dt><dd>Ian Hickson. <a href="http://www.w3.org/TR/2012/CR-workers-20120501"><cite>Web Workers.</cite></a> 01 May 2012. W3C Candidate Recommendation. URL: <a href="http://www.w3.org/TR/2012/CR-workers-20120501">http://www.w3.org/TR/2012/CR-workers-20120501</a>
+</dd><dt id="bib-WIDGETS">[WIDGETS]</dt><dd>Marcos Cáceres. <a href="http://www.w3.org/TR/widgets/"><cite>Widget Packaging and XML Configuration</cite></a> 27 November 2012. W3C Recommendation. URL: <a href="http://www.w3.org/TR/widgets/">http://www.w3.org/TR/widgets/</a>
+</dd><dt id="bib-WOFF">[WOFF]</dt><dd>Jonathan Kew; Tal Leming; Erik van Blokland. <a href="http://www.w3.org/TR/WOFF/"><cite>WOFF File Format 1.0.</cite></a> 13 December 2012. W3C Recommendation. URL: <a href="http://www.w3.org/TR/WOFF/">http://www.w3.org/TR/WOFF/</a>
+</dd><dt id="bib-XMLHTTPREQUEST">[XMLHTTPREQUEST]</dt><dd>Julian Aubourg; Jungkee Song; Hallvord R. M. Steen; Anne van Kesteren. <a href="http://www.w3.org/TR/2012/WD-XMLHttpRequest-20121206/"><cite>XMLHttpRequest.</cite></a> 6 December 2012. W3C Working Draft. URL: <a href="http://www.w3.org/TR/2012/WD-XMLHttpRequest-20121206/">http://www.w3.org/TR/2012/WD-XMLHttpRequest-20121206/</a>
+</dd></dl></section></section></body></html>
