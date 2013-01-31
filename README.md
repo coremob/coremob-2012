@@ -8,6 +8,7 @@ Editor's drafts
 ---------------
 
 * [Latest](http://coremob.github.com/coremob-2012/)
+* [31 January 2013 (final draft)](http://coremob.github.com/coremob-2012/ED-coremob-20130131.html)
 * [23 January 2013](http://coremob.github.com/coremob-2012/ED-coremob-20130123.html)
 * [22 December 2012](http://coremob.github.com/coremob-2012/ED-coremob-20121222.html)
 * [5 September 2012](http://coremob.github.com/coremob-2012/ED-coremob-20120905.html)
